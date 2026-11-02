@@ -2,10 +2,9 @@
 (function () {
   'use strict';
 
-  // Replace YOUR_FORM_ID with the ID from your Formspree form (formspree.io).
-  // The same URL is set as the form's `action` in index.html so the form
-  // still works if JavaScript fails to load.
-  var FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  // Formspree endpoint. The same URL is set as the form's `action` in
+  // index.html so the form still works if JavaScript fails to load.
+  var FORM_ENDPOINT = 'https://formspree.io/f/mkjjpwzb';
 
   /* ---------- Footer year ---------- */
   var yearEl = document.getElementById('year');
@@ -180,7 +179,7 @@
       .catch(function () {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Request my quote';
-        setStatus('Something went wrong sending your request. Please try again, or contact us directly.', 'error');
+        setStatus('Something went wrong sending your request. Please try again, or call/text (458) 205-5060.', 'error');
       });
   });
 

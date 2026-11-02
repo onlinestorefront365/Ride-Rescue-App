@@ -19,9 +19,10 @@
     "@type": "AutomotiveBusiness",
     "name": "Ride Rescue",
     "description": "FORScan diagnostics, module programming and feature configuration for Ford, Lincoln and Mazda vehicles. Remote sessions and on-site service.",
-    "areaServed": "SERVICE_AREA_PLACEHOLDER",
-    "telephone": "PHONE_PLACEHOLDER",
-    "email": "EMAIL_PLACEHOLDER",
+    "areaServed": {"@type": "State", "name": "Oregon"},
+    "address": {"@type": "PostalAddress", "postalCode": "97481", "addressLocality": "Tenmile", "addressRegion": "OR", "addressCountry": "US"},
+    "telephone": "+1-458-205-5060",
+    "email": "Riderescueapp@gmail.com",
     "makesOffer": [
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "FORScan diagnostics and full module scan"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "As-Built feature configuration"}},
@@ -175,9 +176,9 @@
             <p>We come to you with our own laptop, adapter and battery support. Best for module installs, key programming and anything you'd rather not do yourself.</p>
             <h4>Good to know</h4>
             <ul class="checklist">
-              <li>Serving <strong>[SERVICE AREA]</strong></li>
+              <li>Based in Tenmile, OR (97481). We travel <strong>anywhere in Oregon</strong></li>
               <li>Home, work or the shop that did the repair</li>
-              <li>A travel fee may apply outside the core area</li>
+              <li>First 15 miles free, then the IRS standard mileage rate, round trip from 97481</li>
             </ul>
             <a href="#book" class="btn btn-ghost" data-delivery="onsite">Book on-site</a>
           </article>
@@ -269,7 +270,7 @@
             <ul class="checklist">
               <li>We come to you with all equipment</li>
               <li>Multi-module or complex jobs</li>
-              <li>Travel fee may apply</li>
+              <li>Mileage beyond 15 miles at the IRS standard rate</li>
             </ul>
           </article>
         </div>
@@ -281,9 +282,9 @@
       <div class="container narrow">
         <p class="eyebrow">Book a session</p>
         <h2 id="book-title">Tell us about your vehicle</h2>
-        <p class="section-lead">We'll reply with a confirmed quote and available times, usually within one business day.</p>
+        <p class="section-lead">We'll reply with a confirmed quote and available times, usually within one business day. Prefer to talk? Call or text <a href="tel:+14582055060">(458) 205-5060</a>.</p>
 
-        <form id="booking-form" class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <form id="booking-form" class="form" action="https://formspree.io/f/mkjjpwzb" method="POST" novalidate>
           <fieldset>
             <legend>Your details</legend>
             <div class="form-row">
@@ -377,7 +378,7 @@
             </div>
 
             <div class="field" id="zip-field" hidden>
-              <label for="zip">ZIP code for on-site visit <span aria-hidden="true">*</span></label>
+              <label for="zip">ZIP code for on-site visit <span aria-hidden="true">*</span> <span class="optional">(we're based in 97481 and travel anywhere in Oregon)</span></label>
               <input id="zip" name="zip" type="text" inputmode="numeric" maxlength="10" autocomplete="postal-code" aria-describedby="zip-error">
               <p class="field-error" id="zip-error" aria-live="polite"></p>
             </div>
@@ -433,6 +434,10 @@
             <p>For remote sessions, yes. The free extended license works for most jobs and we'll help you set it up. For on-site jobs we bring our own.</p>
           </details>
           <details>
+            <summary>How is travel charged for on-site visits?</summary>
+            <p>We're based in Tenmile, OR (97481) and travel anywhere in Oregon. The first 15 miles are free. Beyond that, mileage is billed at the current IRS standard mileage rate, round trip from 97481. Your quote includes the travel charge up front.</p>
+          </details>
+          <details>
             <summary>What if it can't be done?</summary>
             <p>We confirm compatibility before booking. If something turns out to be impossible on your vehicle during the session, you don't pay for that job.</p>
           </details>
@@ -459,9 +464,9 @@
         <p class="muted">FORScan programming &amp; diagnostics. Remote and on-site.</p>
       </div>
       <ul class="footer-contact">
-        <li><a href="tel:+10000000000">[PHONE]</a></li>
-        <li><a href="mailto:hello@example.com">[EMAIL]</a></li>
-        <li>Serving [SERVICE AREA]</li>
+        <li><a href="tel:+14582055060">(458) 205-5060</a></li>
+        <li><a href="mailto:Riderescueapp@gmail.com">Riderescueapp@gmail.com</a></li>
+        <li>Tenmile, OR 97481 · On-site anywhere in Oregon</li>
       </ul>
     </div>
     <div class="container">

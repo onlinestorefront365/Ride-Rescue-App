@@ -20,26 +20,25 @@ python3 -m http.server 8000
 
 ## Before launch: replace placeholders
 
-Search the repo for these and swap in real values:
+Swap in real values for:
 
 | Placeholder | Where |
 |---|---|
-| `YOUR_FORM_ID` | `index.html` (form `action`) and `assets/js/main.js` (`FORM_ENDPOINT`) |
-| `[PHONE]`, `tel:+10000000000` | footer in `index.html` |
-| `[EMAIL]`, `hello@example.com` | footer in `index.html` |
-| `[SERVICE AREA]` | on-site card and footer in `index.html` |
 | `$[XX]` | pricing cards in `index.html` |
-| `*_PLACEHOLDER` | JSON-LD block in the `<head>` of `index.html` |
 
 Also review the policy claims ("No fix, no charge", "Revert on request ... at no charge") and remove any you won't guarantee.
 
-### Booking form setup (Formspree)
+## Business details
 
-1. Create a free form at https://formspree.io and copy its ID (the part after `/f/`).
-2. Replace `YOUR_FORM_ID` in both places listed above.
-3. Submissions arrive by email. The hidden `_gotcha` field is Formspree's spam honeypot.
+- Phone: (458) 205-5060 · Email: Riderescueapp@gmail.com
+- Based in Tenmile, OR 97481; on-site service anywhere in Oregon
+- Travel: first 15 miles free, then the IRS standard mileage rate, round trip from 97481
 
-Any service that accepts a standard form POST works (Netlify Forms, Basin, Getform); update the endpoint to match.
+These appear in the on-site card, on-site pricing tier, booking section, FAQ, footer and the JSON-LD block in `<head>`.
+
+### Booking form (Formspree)
+
+The form posts to `https://formspree.io/f/mkjjpwzb`, set in two places: the form `action` in `index.html` and `FORM_ENDPOINT` in `assets/js/main.js`. Change both if the form is ever replaced. Submissions arrive at the email on the Formspree account. The hidden `_gotcha` field is Formspree's spam honeypot.
 
 ## Deploy to GitHub Pages
 
