@@ -1,0 +1,184 @@
+{
+  "logos": [
+    {
+      "file": "logo/svg/ride-rescue-horizontal-navy.svg",
+      "type": "Horizontal lockup",
+      "use": "light backgrounds: Soft White, white, light photos. Also the monochrome navy version"
+    },
+    {
+      "file": "logo/svg/ride-rescue-stacked-navy.svg",
+      "type": "Stacked lockup",
+      "use": "light backgrounds: Soft White, white, light photos. Also the monochrome navy version"
+    },
+    {
+      "file": "logo/svg/ride-rescue-horizontal-dark.svg",
+      "type": "Horizontal lockup",
+      "use": "navy, graphite and dark photos (primary full-colour version)"
+    },
+    {
+      "file": "logo/svg/ride-rescue-stacked-dark.svg",
+      "type": "Stacked lockup",
+      "use": "navy, graphite and dark photos (primary full-colour version)"
+    },
+    {
+      "file": "logo/svg/ride-rescue-horizontal-black.svg",
+      "type": "Horizontal lockup",
+      "use": "one-colour black: fax, engraving, newspaper, single-colour print"
+    },
+    {
+      "file": "logo/svg/ride-rescue-stacked-black.svg",
+      "type": "Stacked lockup",
+      "use": "one-colour black: fax, engraving, newspaper, single-colour print"
+    },
+    {
+      "file": "logo/svg/ride-rescue-horizontal-white.svg",
+      "type": "Horizontal lockup",
+      "use": "one-colour white: reversed out of any dark colour or photo"
+    },
+    {
+      "file": "logo/svg/ride-rescue-stacked-white.svg",
+      "type": "Stacked lockup",
+      "use": "one-colour white: reversed out of any dark colour or photo"
+    },
+    {
+      "file": "logo/svg/ride-rescue-horizontal-lime.svg",
+      "type": "Horizontal lockup",
+      "use": "monochrome lime: navy or graphite backgrounds only, never on light"
+    },
+    {
+      "file": "logo/svg/ride-rescue-stacked-lime.svg",
+      "type": "Stacked lockup",
+      "use": "monochrome lime: navy or graphite backgrounds only, never on light"
+    },
+    {
+      "file": "logo/svg/rr-monogram-navy.svg",
+      "type": "RR monogram (master, 32 px and up)",
+      "use": "navy"
+    },
+    {
+      "file": "logo/svg/rr-monogram-small-navy.svg",
+      "type": "RR monogram small-size cut (16-31 px)",
+      "use": "navy"
+    },
+    {
+      "file": "logo/svg/rr-monogram-lime.svg",
+      "type": "RR monogram (master, 32 px and up)",
+      "use": "lime"
+    },
+    {
+      "file": "logo/svg/rr-monogram-small-lime.svg",
+      "type": "RR monogram small-size cut (16-31 px)",
+      "use": "lime"
+    },
+    {
+      "file": "logo/svg/rr-monogram-white.svg",
+      "type": "RR monogram (master, 32 px and up)",
+      "use": "white"
+    },
+    {
+      "file": "logo/svg/rr-monogram-small-white.svg",
+      "type": "RR monogram small-size cut (16-31 px)",
+      "use": "white"
+    },
+    {
+      "file": "logo/svg/rr-monogram-black.svg",
+      "type": "RR monogram (master, 32 px and up)",
+      "use": "black"
+    },
+    {
+      "file": "logo/svg/rr-monogram-small-black.svg",
+      "type": "RR monogram small-size cut (16-31 px)",
+      "use": "black"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-navy.svg",
+      "type": "Wordmark",
+      "use": "navy"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-white.svg",
+      "type": "Wordmark",
+      "use": "white"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-black.svg",
+      "type": "Wordmark",
+      "use": "black"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-lime.svg",
+      "type": "Wordmark",
+      "use": "lime"
+    }
+  ],
+  "icons": [
+    {
+      "id": "towing",
+      "label": "Towing"
+    },
+    {
+      "id": "battery-jump",
+      "label": "Battery jump-start"
+    },
+    {
+      "id": "flat-tire",
+      "label": "Flat tire assistance"
+    },
+    {
+      "id": "tire-replacement",
+      "label": "Tire replacement"
+    },
+    {
+      "id": "lockout",
+      "label": "Vehicle lockout"
+    },
+    {
+      "id": "fuel-delivery",
+      "label": "Emergency fuel delivery"
+    },
+    {
+      "id": "breakdown",
+      "label": "Vehicle breakdown"
+    },
+    {
+      "id": "roadside-emergency",
+      "label": "Roadside emergency"
+    },
+    {
+      "id": "service-request",
+      "label": "Service request"
+    },
+    {
+      "id": "location",
+      "label": "Location tracking"
+    },
+    {
+      "id": "technician-arrival",
+      "label": "Technician arrival"
+    },
+    {
+      "id": "support",
+      "label": "Customer support"
+    },
+    {
+      "id": "diagnostics",
+      "label": "Diagnostics & module scan"
+    },
+    {
+      "id": "module-programming",
+      "label": "Module programming"
+    },
+    {
+      "id": "key-programming",
+      "label": "Key programming"
+    },
+    {
+      "id": "feature-config",
+      "label": "Feature configuration"
+    },
+    {
+      "id": "service-procedures",
+      "label": "Service procedures"
+    }
+  ]
+}

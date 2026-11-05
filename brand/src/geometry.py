@@ -142,27 +142,38 @@ def concept_a_tandem():
     return union(r1, r2)
 
 
-def concept_b_lane():
-    """B — LANE. A mirrored pair (Я|R) whose stems lean apart, leaving a
-    tapered road in the negative space that runs to a vanishing point."""
-    g_top, g_bot = -1.2, 9     # lane half-width at top (negative = stems fuse) / baseline
-    t = T
-    # right-hand R, stem inner edge slanted outward toward the baseline
+def lane_mark(t=T, bowl_h=BOWL, g_top=-1.2, g_bot=9, bowl_dx=21, leg_dx=16):
+    """The Lane monogram, parameterised.
+
+    t       stroke weight            bowl_h  bowl height
+    g_top   lane half-width at the cap line (negative = stems fuse)
+    g_bot   lane half-width at the baseline
+    bowl_dx distance from the stem's inner edge to the bowl's circle centre
+    leg_dx  horizontal run of the leg from bowl junction to baseline
+    """
     def gx(y):
         return g_top + (g_bot - g_top) * y / H
     stem = poly((gx(0), 0), (gx(0) + t, 0), (gx(H) + t, H), (gx(H), H))
-    cx = gx(0) + 21
-    r = BOWL / 2
-    outer = union(rect(gx(0), 0, cx, BOWL), circle(cx, r, r))
-    inner = union(poly((gx(t) + t, t), (cx, t), (cx, BOWL - t), (gx(BOWL - t) + t, BOWL - t)),
+    cx = gx(0) + bowl_dx
+    r = bowl_h / 2
+    outer = union(rect(gx(0), 0, cx, bowl_h), circle(cx, r, r))
+    inner = union(poly((gx(t) + t, t), (cx, t), (cx, bowl_h - t), (gx(bowl_h - t) + t, bowl_h - t)),
                   circle(cx, r, r - t))
-    bw = inter(diff(outer, inner), poly((gx(0), 0), (cx + r + 1, 0), (cx + r + 1, BOWL), (gx(BOWL), BOWL)))
-    lg = leg(cx + 2, BOWL - t / 2, cx + 18, H, t)
+    bw = inter(diff(outer, inner), poly((gx(0), 0), (cx + r + 1, 0), (cx + r + 1, bowl_h), (gx(bowl_h), bowl_h)))
+    lg = leg(cx + 2, bowl_h - t / 2, cx + 2 + leg_dx, H, t)
     right = union(stem, bw, lg)
-    left = mirror_x(right, 0)
-    mark = union(left, right)
-    # the very top of the lane is closed by a hairline otherwise; keep it open
-    return mark
+    return union(mirror_x(right, 0), right)
+
+
+# Approved master (Stage 3) and the small-size cut for 16–31 px.
+LANE_MASTER = dict()
+LANE_SMALL = dict(t=10.5, bowl_h=40, g_top=0, g_bot=13, bowl_dx=21, leg_dx=14)
+
+
+def concept_b_lane():
+    """B — LANE. A mirrored pair (Я|R) whose stems lean apart, leaving a
+    tapered road in the negative space that runs to a vanishing point."""
+    return lane_mark(**LANE_MASTER)
 
 
 def concept_c_route():
@@ -201,3 +212,18 @@ CONCEPTS = {
     "b-lane": ("Lane", concept_b_lane),
     "c-route": ("Route", concept_c_route),
 }
+
+
+def brand_r(t=T, bowl_h=BOWL, bowl_dx=21, leg_dx=16):
+    """Upright R drawn with the Lane mark's bowl and leg geometry, for the
+    wordmark. Returns (path at 64-unit cap height, advance-free width)."""
+    stem = rect(0, 0, t, H)
+    cx = bowl_dx - 1
+    r = bowl_h / 2
+    outer = union(rect(0, 0, cx, bowl_h), circle(cx, r, r))
+    inner = union(rect(t, t, cx, bowl_h - t), circle(cx, r, r - t))
+    bw = inter(diff(outer, inner), rect(0, 0, cx + r + 1, bowl_h))
+    lg = leg(cx + 2, bowl_h - t / 2, cx + 2 + leg_dx, H, t)
+    p = union(stem, bw, lg)
+    x0, y0, x1, y1 = p.bounds
+    return p, x1 - x0

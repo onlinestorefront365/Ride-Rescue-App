@@ -23,7 +23,13 @@ def _font(weight):
     return _cache[weight]
 
 
-def text_path(text, cap_height, weight=800, tracking=0.08, pairs=None, font_path=None):
+def _place(path, k, dx):
+    out = Path()
+    path.draw(TransformPen(out.getPen(), (k, 0, 0, k, dx, 0)))
+    return out
+
+
+def text_path(text, cap_height, weight=800, tracking=0.08, pairs=None, font_path=None, custom_r=False):
     """Return (Path, width) for `text` scaled so caps are `cap_height` tall.
 
     tracking is in em (0.08 = +80 units/1000). `pairs` adjusts spacing
@@ -49,6 +55,17 @@ def text_path(text, cap_height, weight=800, tracking=0.08, pairs=None, font_path
             x += pairs.get(prev + ch, 0) * upm * s
         gname = cmap[ord(ch)]
         adv = hmtx[gname][0]
+        if ch == "R" and custom_r:
+            # Monogram-derived R: same 64/12 construction as the Lane mark,
+            # scaled to cap height, with Manrope's R side-bearings.
+            from geometry import brand_r, H as MARK_H
+            r_path, r_w = brand_r()
+            k = cap_height / MARK_H
+            lsb = 140 * s
+            out = op(out, _place(r_path, k, x + lsb), PathOp.UNION)
+            x += lsb + r_w * k + 80 * s + tracking * upm * s
+            prev = ch
+            continue
         if ch != " ":
             # font units are y-up; flip into SVG y-down with baseline at cap_height
             pen = TransformPen(out.getPen(), (s, 0, 0, -s, x, cap_height))

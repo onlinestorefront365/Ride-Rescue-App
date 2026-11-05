@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ride Rescue | FORScan Programming &amp; Diagnostics, Remote or On-Site</title>
   <meta name="description" content="Dealer-level programming and diagnostics for Ford, Lincoln and Mazda vehicles using FORScan, without dealer prices or wait times. Remote sessions or on-site service.">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#14283D">
   <link rel="canonical" href="https://riderescueapp.com/">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://riderescueapp.com/">
   <meta property="og:title" content="Ride Rescue | FORScan Programming &amp; Diagnostics">
   <meta property="og:description" content="Skip the dealer wait. Module programming, feature configuration, keys, TPMS and diagnostics for Ford, Lincoln and Mazda, remote or on-site.">
+  <meta property="og:image" content="https://riderescueapp.com/assets/img/icon-512.png">
 
   <script type="application/ld+json">
   {
@@ -21,6 +26,7 @@
     "@type": "AutomotiveBusiness",
     "name": "Ride Rescue",
     "url": "https://riderescueapp.com",
+    "logo": "https://riderescueapp.com/assets/img/icon-512.png",
     "description": "FORScan diagnostics, module programming and feature configuration for Ford, Lincoln and Mazda vehicles. Remote sessions and on-site service.",
     "areaServed": {"@type": "State", "name": "Oregon"},
     "address": {"@type": "PostalAddress", "postalCode": "97481", "addressLocality": "Tenmile", "addressRegion": "OR", "addressCountry": "US"},
@@ -42,8 +48,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Ride Rescue home">
-        <img src="assets/img/favicon.svg" alt="" width="32" height="32">
-        <span>Ride<strong>Rescue</strong></span>
+        <img src="assets/img/logo-horizontal-dark.svg" alt="Ride Rescue" width="186" height="32">
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="sr-only">Menu</span>
@@ -64,6 +69,7 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top">
+      <svg class="hero-lane" viewBox="-9 7.53 18 56.47" aria-hidden="true" focusable="false"><path d="M0 7.53 9 64H-9Z"/></svg>
       <div class="container hero-inner">
         <p class="eyebrow">Now booking: FORScan programming &amp; diagnostics</p>
         <h1>Dealer-level Ford, Lincoln &amp; Mazda programming, <span class="accent">without the dealer price or the wait.</span></h1>
@@ -122,34 +128,42 @@
         <p class="section-lead">Ford, Lincoln and Mazda vehicles that FORScan supports, including most models from the mid-2000s onward. Not sure about yours? Ask in the booking form and we'll confirm before you pay anything.</p>
         <div class="grid grid-4">
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-diagnostics"></use></svg>
             <h3>Diagnostics &amp; full module scan</h3>
             <p>Read and explain codes across every module, not just the engine. Live data, self-tests and a plain-English report.</p>
           </article>
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-feature-config"></use></svg>
             <h3>Feature configuration</h3>
             <p>As-Built changes such as DRLs, bambi mode, auto start-stop memory, mirror fold, double-honk off, global windows and more.</p>
           </article>
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-module-programming"></use></svg>
             <h3>Module programming</h3>
             <p>Programmable module installation (PMI) for replacement BCM, PCM, IPC, APIM/SYNC, ABS and other modules, new or used.</p>
           </article>
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-key-programming"></use></svg>
             <h3>Key programming (PATS)</h3>
             <p>Add spare keys, program replacement keys and fobs, and recover from all-keys-lost situations where supported.</p>
           </article>
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-tire-replacement"></use></svg>
             <h3>Tire size &amp; axle ratio</h3>
             <p>Correct your speedometer, odometer, shift points and ABS after new tires, a lift kit or a gear swap.</p>
           </article>
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-flat-tire"></use></svg>
             <h3>TPMS programming</h3>
             <p>Program new sensors, adjust pressure thresholds, or turn off TPMS for seasonal wheel sets where legal.</p>
           </article>
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-service-procedures"></use></svg>
             <h3>Service procedures</h3>
             <p>Injector code entry, DPF regeneration, transmission adaptive relearn, battery monitor reset, brake service mode and more.</p>
           </article>
           <article class="card service">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-support"></use></svg>
             <h3>FORScan setup help</h3>
             <p>Pick the right adapter, install drivers, set up your license and get connected so you can do the basics yourself.</p>
           </article>
@@ -460,9 +474,8 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <a href="#top" class="brand">
-          <img src="assets/img/favicon.svg" alt="" width="28" height="28">
-          <span>Ride<strong>Rescue</strong></span>
+        <a href="#top" class="brand" aria-label="Ride Rescue home">
+          <img src="assets/img/logo-horizontal-dark.svg" alt="Ride Rescue" width="186" height="32">
         </a>
         <p class="muted">FORScan programming &amp; diagnostics. Remote and on-site.</p>
       </div>
