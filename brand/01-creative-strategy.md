@@ -1,6 +1,6 @@
 # Ride Rescue — Stage 1: Creative Strategy
 
-Status: **draft for approval**. Nothing past Stage 2 is produced until the decisions in section 8 are signed off.
+Status: positioning, personality and principles still apply. **Sections 3 (colour) and 4 (typography), and the logo direction, are superseded by identity v2**: see `03-identity-system.md`.
 
 ## 1. Positioning
 

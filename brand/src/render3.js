@@ -4,7 +4,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const ID = path.resolve(__dirname, '..', 'identity');
+const ID = path.resolve(__dirname, '..', 'archive', 'lane-v1', 'identity');
 const SVG = path.join(ID, 'logo', 'svg');
 const PNG = path.join(ID, 'logo', 'png');
 fs.mkdirSync(PNG, { recursive: true });

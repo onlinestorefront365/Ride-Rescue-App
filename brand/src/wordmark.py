@@ -75,3 +75,49 @@ def text_path(text, cap_height, weight=800, tracking=0.08, pairs=None, font_path
     width = x - tracking * upm * s
     clean = op(out, Path(), PathOp.UNION)  # resolve overlapping contours
     return clean, width
+
+
+# ---------------------------------------------------------------------------
+# Generic setter (identity v2): any static or variable font, any axes.
+_gcache = {}
+
+
+def load_font(font_path, axes=None):
+    key = (font_path, tuple(sorted((axes or {}).items())))
+    if key not in _gcache:
+        f = TTFont(font_path)
+        if "fvar" in f and axes:
+            f = instantiateVariableFont(f, axes)
+        _gcache[key] = f
+    return _gcache[key]
+
+
+def set_text(text, cap_height, font_path, axes=None, tracking=0.0, pairs=None, glyph_override=None):
+    """Return (Path, width). Caps are cap_height tall, baseline at y = cap_height.
+
+    glyph_override: {char: callable(cap_height) -> (Path at origin, advance)}
+    lets the wordmark swap in custom-drawn letters (e.g. the monogram R).
+    """
+    f = load_font(font_path, axes)
+    upm = f["head"].unitsPerEm
+    cap = getattr(f["OS/2"], "sCapHeight", 0) or int(upm * 0.7)
+    s = cap_height / cap
+    gs, cmap, hmtx = f.getGlyphSet(), f.getBestCmap(), f["hmtx"]
+    pairs = pairs or {}
+    glyph_override = glyph_override or {}
+    out, x, prev = Path(), 0.0, None
+    for ch in text:
+        if prev is not None:
+            x += pairs.get(prev + ch, 0) * upm * s
+        if ch in glyph_override:
+            gp, adv = glyph_override[ch](cap_height)
+            out = op(out, _place(gp, 1, x), PathOp.UNION)
+            x += adv + tracking * upm * s
+            prev = ch
+            continue
+        g = cmap[ord(ch)]
+        if ch != " ":
+            gs[g].draw(TransformPen(out.getPen(), (s, 0, 0, -s, x, cap_height)))
+        x += hmtx[g][0] * s + tracking * upm * s
+        prev = ch
+    return op(out, Path(), PathOp.UNION), x - tracking * upm * s

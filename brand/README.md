@@ -2,60 +2,45 @@
 
 | Stage | Status | Files |
 |---|---|---|
-| 1 · Creative strategy | Approved (positioning assumed per recommendation) | [`01-creative-strategy.md`](01-creative-strategy.md) |
-| 2 · Logo development | B · Lane approved | [`02-monogram-concepts.md`](02-monogram-concepts.md), [`exploration/stage-2/`](exploration/stage-2/) |
-| 3 · Identity system | Done, awaiting review | [`03-identity-system.md`](03-identity-system.md), [`identity/`](identity/) |
+| 1 · Creative strategy | Positioning still applies; colour, type and logo direction superseded by v2 | [`01-creative-strategy.md`](01-creative-strategy.md) |
+| 2 · Logo development | Lane chosen, later replaced by v2 | [`02-monogram-concepts.md`](02-monogram-concepts.md), [`exploration/stage-2/`](exploration/stage-2/) |
+| 3 · Identity system **v2** | Built, awaiting approval | [`03-identity-system.md`](03-identity-system.md), [`identity/`](identity/) |
+| Archived: Lane v1 | Still used by the live website until v2 is approved | [`archive/lane-v1/`](archive/lane-v1/) |
 | 4 · Digital assets | Not started | — |
 | 5 · Physical applications | Not started | — |
 | 6 · Final production | Not started | — |
-
-Nothing in `exploration/` is a final production file. These are concept-stage vectors for choosing a direction. The approved system lives in `identity/`.
 
 ## Folder layout
 
 ```
 brand/
-  01-creative-strategy.md
-  02-monogram-concepts.md
-  03-identity-system.md
-  fonts/                    Manrope + Inter variable fonts + licences (SIL OFL 1.1)
-  src/                      Generators: the editable source for every asset
-    geometry.py             Monogram construction (64-unit grid, boolean-unioned paths)
-    wordmark.py             RIDE RESCUE outlines from Manrope
-    build_stage2.py         Writes SVG exports + manifest
-    boards.py               Writes presentation board HTML
-    render.js               Renders PNG size tests, boards, PDF (Playwright)
-    icons.py                Service icon family (24-unit grid)
-    build_stage3.py         Logo family, icons, graphics, tokens
-    boards3.py, render3.js  Stage 3 boards, PNG exports, PDF
-    site_assets.py, render_site_icons.js   Copies brand assets into the website
-  identity/
-    logo/svg/               every logo variation (single compound paths)
-    logo/png/               transparent PNG exports
-    logo/diagrams/          construction + clear space
-    icons/svg/, sprite.svg  17 service icons
-    graphics/               lane wedge, divider, pattern, direction wedge, frame
-    tokens/                 tokens.css, tokens.json
-    boards/                 Stage 3 presentation boards
-    ride-rescue-stage-3-identity-system.pdf
-  exploration/stage-2/
-    a-tandem/  b-lane/  c-route/
-      *-mark-{navy,lime,white,black}.svg    single compound path, transparent
-      *-lockup-{light,dark}.svg             horizontal lockup, wordmark outlined
-      *-app-tile.svg                        full-bleed square app tile
-      *-construction.svg                    grid + negative-space diagram
-    png/                    1024 / 512 / 128 / 64 / 32 px tests (app tile + transparent mark)
-    board-*.png             presentation boards
-    ride-rescue-stage-2-monogram-concepts.pdf
+  01-creative-strategy.md     positioning (colour/type sections superseded by v2)
+  02-monogram-concepts.md     Stage 2 Lane exploration
+  03-identity-system.md       identity v2 standards (current)
+  fonts/                      Saira, Inter, Manrope + licences (SIL OFL 1.1)
+  src/
+    rr2.py                    v2 geometry: RR, gear, peaks, arc, true offsets (skia)
+    build_v2.py               v2 logos, promo chrome, tokens, icons, graphics
+    boards_v2.py, render_v2.js  v2 boards, PNG exports, size tests, PDF
+    wordmark.py               font outlining (set_text) + custom-glyph override
+    icons.py                  17 service icons
+    geometry.py, build_stage2/3.py, boards*.py, render*.js, site_assets.py   Lane (archive + current site)
+  identity/                   v2 output
+    logo/svg/                 every flat lockup in dark / light / black / white
+    logo/promo/               chrome promotional SVG
+    logo/png/                 transparent PNG exports, chrome PNGs, size-test tiles
+    logo/diagrams/            construction
+    icons/, graphics/, tokens/, boards/
+    ride-rescue-identity-v2.pdf
+  archive/lane-v1/            previous identity + its standards doc
+  exploration/stage-2/        Stage 2 concept package
 ```
 
 ## Rebuild
 
 ```bash
-pip install skia-pathops fonttools
-python brand/src/build_stage3.py && python brand/src/boards3.py && node brand/src/render3.js
-python brand/src/site_assets.py && node brand/src/render_site_icons.js   # update the website
-# Stage 2 exploration: build_stage2.py, boards.py, render.js
+pip install skia-pathops skia-python fonttools brotli   # skia-python needs libEGL (apt-get install libegl1)
+python brand/src/build_v2.py && python brand/src/boards_v2.py && node brand/src/render_v2.js
 ```
 
-Change a number in `src/geometry.py` (stroke, bowl height, lane taper) and rebuild. Every SVG, PNG, board and the PDF regenerates from the same source.
+Change a number in `src/rr2.py` (stroke, bowl, slant, road-line run, gear teeth, knock-out gaps) and rebuild. Every SVG, PNG, board and the PDF regenerates from the same source.

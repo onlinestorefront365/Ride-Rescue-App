@@ -1,5 +1,7 @@
 # Ride Rescue — Stage 2: RR Monogram Concepts
 
+> **Superseded:** Lane was approved, then replaced by identity v2 (industrial italic RR, gear and peaks). See `03-identity-system.md`. Lane is archived in `archive/lane-v1/`.
+
 All three concepts share one construction system, so whichever is chosen, the rest of the identity inherits the same grid:
 
 - **Cap height:** 64 units. **Master stroke:** 12 units (H ÷ 5.33). **Bowl height:** 38 units.

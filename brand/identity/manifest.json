@@ -1,114 +1,184 @@
 {
   "logos": [
     {
-      "file": "logo/svg/ride-rescue-horizontal-navy.svg",
-      "type": "Horizontal lockup",
-      "use": "light backgrounds: Soft White, white, light photos. Also the monochrome navy version"
+      "file": "logo/svg/rr-micro-white.svg",
+      "type": "Micro mark (RR)",
+      "use": "white"
     },
     {
-      "file": "logo/svg/ride-rescue-stacked-navy.svg",
-      "type": "Stacked lockup",
-      "use": "light backgrounds: Soft White, white, light photos. Also the monochrome navy version"
+      "file": "logo/svg/rr-micro-carbon.svg",
+      "type": "Micro mark (RR)",
+      "use": "carbon"
     },
     {
-      "file": "logo/svg/ride-rescue-horizontal-dark.svg",
-      "type": "Horizontal lockup",
-      "use": "navy, graphite and dark photos (primary full-colour version)"
+      "file": "logo/svg/rr-micro-blue.svg",
+      "type": "Micro mark (RR)",
+      "use": "blue"
+    },
+    {
+      "file": "logo/svg/rr-micro-silver.svg",
+      "type": "Micro mark (RR)",
+      "use": "silver"
+    },
+    {
+      "file": "logo/svg/rr-micro-black.svg",
+      "type": "Micro mark (RR)",
+      "use": "black"
+    },
+    {
+      "file": "logo/svg/rr-gear-dark.svg",
+      "type": "Secondary: RR in gear",
+      "use": "Full colour on Carbon Black or dark photography (primary)"
+    },
+    {
+      "file": "logo/svg/rr-gear-light.svg",
+      "type": "Secondary: RR in gear",
+      "use": "Full colour on white and light backgrounds"
+    },
+    {
+      "file": "logo/svg/rr-gear-black.svg",
+      "type": "Secondary: RR in gear",
+      "use": "One colour: single-colour print, engraving, fax, stamps"
+    },
+    {
+      "file": "logo/svg/rr-gear-white.svg",
+      "type": "Secondary: RR in gear",
+      "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
+    },
+    {
+      "file": "logo/svg/emblem-dark.svg",
+      "type": "Primary emblem",
+      "use": "Full colour on Carbon Black or dark photography (primary)"
+    },
+    {
+      "file": "logo/svg/emblem-light.svg",
+      "type": "Primary emblem",
+      "use": "Full colour on white and light backgrounds"
+    },
+    {
+      "file": "logo/svg/emblem-black.svg",
+      "type": "Primary emblem",
+      "use": "One colour: single-colour print, engraving, fax, stamps"
+    },
+    {
+      "file": "logo/svg/emblem-white.svg",
+      "type": "Primary emblem",
+      "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
     },
     {
       "file": "logo/svg/ride-rescue-stacked-dark.svg",
-      "type": "Stacked lockup",
-      "use": "navy, graphite and dark photos (primary full-colour version)"
+      "type": "Primary lockup, stacked",
+      "use": "Full colour on Carbon Black or dark photography (primary)"
     },
     {
-      "file": "logo/svg/ride-rescue-horizontal-black.svg",
-      "type": "Horizontal lockup",
-      "use": "one-colour black: fax, engraving, newspaper, single-colour print"
+      "file": "logo/svg/ride-rescue-stacked-light.svg",
+      "type": "Primary lockup, stacked",
+      "use": "Full colour on white and light backgrounds"
     },
     {
       "file": "logo/svg/ride-rescue-stacked-black.svg",
-      "type": "Stacked lockup",
-      "use": "one-colour black: fax, engraving, newspaper, single-colour print"
-    },
-    {
-      "file": "logo/svg/ride-rescue-horizontal-white.svg",
-      "type": "Horizontal lockup",
-      "use": "one-colour white: reversed out of any dark colour or photo"
+      "type": "Primary lockup, stacked",
+      "use": "One colour: single-colour print, engraving, fax, stamps"
     },
     {
       "file": "logo/svg/ride-rescue-stacked-white.svg",
-      "type": "Stacked lockup",
-      "use": "one-colour white: reversed out of any dark colour or photo"
+      "type": "Primary lockup, stacked",
+      "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
     },
     {
-      "file": "logo/svg/ride-rescue-horizontal-lime.svg",
-      "type": "Horizontal lockup",
-      "use": "monochrome lime: navy or graphite backgrounds only, never on light"
+      "file": "logo/promo/ride-rescue-stacked-chrome.svg",
+      "type": "Primary lockup, stacked, promotional chrome",
+      "use": "Banners, ads, presentations, video. Never as the master"
     },
     {
-      "file": "logo/svg/ride-rescue-stacked-lime.svg",
-      "type": "Stacked lockup",
-      "use": "monochrome lime: navy or graphite backgrounds only, never on light"
+      "file": "logo/svg/ride-rescue-horizontal-dark.svg",
+      "type": "Primary lockup, horizontal",
+      "use": "Full colour on Carbon Black or dark photography (primary)"
     },
     {
-      "file": "logo/svg/rr-monogram-navy.svg",
-      "type": "RR monogram (master, 32 px and up)",
-      "use": "navy"
+      "file": "logo/svg/ride-rescue-horizontal-light.svg",
+      "type": "Primary lockup, horizontal",
+      "use": "Full colour on white and light backgrounds"
     },
     {
-      "file": "logo/svg/rr-monogram-small-navy.svg",
-      "type": "RR monogram small-size cut (16-31 px)",
-      "use": "navy"
+      "file": "logo/svg/ride-rescue-horizontal-black.svg",
+      "type": "Primary lockup, horizontal",
+      "use": "One colour: single-colour print, engraving, fax, stamps"
     },
     {
-      "file": "logo/svg/rr-monogram-lime.svg",
-      "type": "RR monogram (master, 32 px and up)",
-      "use": "lime"
+      "file": "logo/svg/ride-rescue-horizontal-white.svg",
+      "type": "Primary lockup, horizontal",
+      "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
     },
     {
-      "file": "logo/svg/rr-monogram-small-lime.svg",
-      "type": "RR monogram small-size cut (16-31 px)",
-      "use": "lime"
+      "file": "logo/promo/ride-rescue-horizontal-chrome.svg",
+      "type": "Primary lockup, horizontal, promotional chrome",
+      "use": "Banners, ads, presentations, video. Never as the master"
     },
     {
-      "file": "logo/svg/rr-monogram-white.svg",
-      "type": "RR monogram (master, 32 px and up)",
-      "use": "white"
+      "file": "logo/svg/ride-rescue-horizontal-compact-dark.svg",
+      "type": "Compact horizontal (gear, no mountain)",
+      "use": "Full colour on Carbon Black or dark photography (primary)"
     },
     {
-      "file": "logo/svg/rr-monogram-small-white.svg",
-      "type": "RR monogram small-size cut (16-31 px)",
-      "use": "white"
+      "file": "logo/svg/ride-rescue-horizontal-compact-light.svg",
+      "type": "Compact horizontal (gear, no mountain)",
+      "use": "Full colour on white and light backgrounds"
     },
     {
-      "file": "logo/svg/rr-monogram-black.svg",
-      "type": "RR monogram (master, 32 px and up)",
-      "use": "black"
+      "file": "logo/svg/ride-rescue-horizontal-compact-black.svg",
+      "type": "Compact horizontal (gear, no mountain)",
+      "use": "One colour: single-colour print, engraving, fax, stamps"
     },
     {
-      "file": "logo/svg/rr-monogram-small-black.svg",
-      "type": "RR monogram small-size cut (16-31 px)",
-      "use": "black"
+      "file": "logo/svg/ride-rescue-horizontal-compact-white.svg",
+      "type": "Compact horizontal (gear, no mountain)",
+      "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
     },
     {
-      "file": "logo/svg/ride-rescue-wordmark-navy.svg",
+      "file": "logo/svg/ride-rescue-wordmark-dark.svg",
       "type": "Wordmark",
-      "use": "navy"
+      "use": "Full colour on Carbon Black or dark photography (primary)"
     },
     {
-      "file": "logo/svg/ride-rescue-wordmark-white.svg",
+      "file": "logo/svg/ride-rescue-wordmark-tagline-dark.svg",
+      "type": "Wordmark with tagline",
+      "use": "Full colour on Carbon Black or dark photography (primary)"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-light.svg",
       "type": "Wordmark",
-      "use": "white"
+      "use": "Full colour on white and light backgrounds"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-tagline-light.svg",
+      "type": "Wordmark with tagline",
+      "use": "Full colour on white and light backgrounds"
     },
     {
       "file": "logo/svg/ride-rescue-wordmark-black.svg",
       "type": "Wordmark",
-      "use": "black"
+      "use": "One colour: single-colour print, engraving, fax, stamps"
     },
     {
-      "file": "logo/svg/ride-rescue-wordmark-lime.svg",
+      "file": "logo/svg/ride-rescue-wordmark-tagline-black.svg",
+      "type": "Wordmark with tagline",
+      "use": "One colour: single-colour print, engraving, fax, stamps"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-white.svg",
       "type": "Wordmark",
-      "use": "lime"
+      "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
+    },
+    {
+      "file": "logo/svg/ride-rescue-wordmark-tagline-white.svg",
+      "type": "Wordmark with tagline",
+      "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
+    },
+    {
+      "file": "logo/promo/emblem-chrome.svg",
+      "type": "Emblem, promotional chrome",
+      "use": "Social, video, merchandise mockups"
     }
   ],
   "icons": [

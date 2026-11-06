@@ -1,27 +1,31 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
-@font-face{font-family:Manrope;src:url(../../fonts/Manrope-Variable.ttf);font-weight:200 800}
+@font-face{font-family:Saira;src:url(../../fonts/Saira-Italic-Variable.ttf);font-style:italic;font-weight:100 900;font-stretch:50% 125%}
 @font-face{font-family:Inter;src:url(../../fonts/Inter-Variable.ttf);font-weight:100 900}
 *{box-sizing:border-box}
-body{margin:0;background:#F5F6F2;color:#14283D;font-family:Inter,sans-serif;width:1200px}
+body{margin:0;background:#E9ECEF;color:#111315;font-family:Inter,sans-serif;width:1200px}
 .board{padding:48px}
-.kicker{font:800 13px Manrope;letter-spacing:.14em;text-transform:uppercase;color:#66717D;margin:0 0 6px}
-h1{font:800 40px/1.1 Manrope;margin:0 0 10px;letter-spacing:-.01em}
-h2{font:800 18px Manrope;margin:0 0 12px}
-.lead{font-size:17px;line-height:1.55;max-width:900px;margin:0 0 28px;color:#2b3a4a}
-.g{display:grid;gap:16px;margin-bottom:16px}
+.kicker{font:italic 700 14px Saira;font-stretch:112%;letter-spacing:.14em;text-transform:uppercase;color:#73777C;margin:0 0 6px}
+h1{font:italic 800 44px/1.05 Saira;font-stretch:112%;margin:0 0 10px}
+h2{font:italic 800 20px Saira;font-stretch:112%;margin:0 0 12px}
+.lead{font-size:16.5px;line-height:1.55;max-width:920px;margin:0 0 26px;color:#2a2e33}
+.g{display:grid;gap:14px;margin-bottom:14px}
 .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
-.p{border-radius:16px;padding:28px;position:relative;display:flex;align-items:center;justify-content:center;min-height:180px}
-.lt{background:#fff;border:1px solid #dfe3e6} .dk{background:#14283D;color:#F5F6F2} .gr{background:#252A30;color:#F5F6F2}
-.lab{position:absolute;left:14px;top:10px;font:700 11px Inter;letter-spacing:.08em;text-transform:uppercase;color:#66717D}
-.dk .lab,.gr .lab{color:#9fb0c1}
-.n{display:inline-block;background:#B9E532;color:#14283D;font:800 11px Inter;border-radius:999px;padding:2px 8px;margin-right:6px}
-.note{font-size:14px;line-height:1.55;color:#2b3a4a}
+.p{border-radius:14px;padding:26px;position:relative;display:flex;align-items:center;justify-content:center;min-height:170px}
+.lt{background:#fff;border:1px solid #d7dbdf} .dk{background:#111315;color:#fff} .bl{background:#087FFF}
+.lab{position:absolute;left:14px;top:10px;font:700 11px Inter;letter-spacing:.08em;text-transform:uppercase;color:#73777C}
+.dk .lab{color:#9aa1a9} .bl .lab{color:#fff}
+.tag{display:inline-block;background:#087FFF;color:#fff;font:700 11px Inter;border-radius:999px;padding:2px 8px;margin-right:6px}
+.note{font-size:14px;line-height:1.55;color:#2a2e33}
+.dk .note{color:#c3c9d0}
 table{border-collapse:collapse;width:100%;font-size:14px} td,th{padding:7px 8px;border-bottom:1px solid #e3e6e8;text-align:left;vertical-align:top}
-th{font:700 11px Inter;letter-spacing:.08em;text-transform:uppercase;color:#66717D}
-.sw{border-radius:14px;overflow:hidden;border:1px solid #dfe3e6;background:#fff}
-.sw .c{height:120px;display:flex;align-items:flex-end;padding:12px;font:800 15px Manrope}
-.sw .m{padding:12px;font-size:12.5px;line-height:1.6;font-family:Inter;font-feature-settings:"tnum"}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:10px;font:700 15px Inter;margin:4px}
-.dont{flex-direction:column;gap:12px} .dont img{max-height:56px;max-width:85%}
-.x{font:700 13px Inter;color:#B42318}
-</style></head><body><div class="board"><p class="kicker">Ride Rescue · Stage 3 · Logo system</p><h1>Lane: the logo family</h1><p class="lead">Every variation below is the same flat artwork recoloured. Numbers match the brief's list of 12 variations. <b>Light-background (5) and monochrome navy (9) are the same file</b>: lime fails contrast on light backgrounds, so the light version is all navy by design. <b>The promotional 3D treatment (12) is deferred to Stage 5</b>, where it belongs with the other promotional work, and it will be derived from this flat master.</p><div class="g g2"><div class="p dk"><span class="lab"><span class="n">1 · 6</span>Primary horizontal · dark backgrounds</span><img src="../logo/svg/ride-rescue-horizontal-dark.svg" style="height:64px;max-width:90%;margin-top:14px"></div><div class="p lt"><span class="lab"><span class="n">1 · 5 · 9</span>Horizontal · light backgrounds / navy mono</span><img src="../logo/svg/ride-rescue-horizontal-navy.svg" style="height:64px;max-width:90%;margin-top:14px"></div><div class="p dk"><span class="lab"><span class="n">2</span>Stacked · dark</span><img src="../logo/svg/ride-rescue-stacked-dark.svg" style="height:120px;max-width:90%;margin-top:14px"></div><div class="p lt"><span class="lab"><span class="n">2</span>Stacked · light</span><img src="../logo/svg/ride-rescue-stacked-navy.svg" style="height:120px;max-width:90%;margin-top:14px"></div><div class="p dk"><span class="lab"><span class="n">3</span>RR monogram · master (32 px +)</span><img src="../logo/svg/rr-monogram-lime.svg" style="height:110px;max-width:90%;margin-top:14px"></div><div class="p dk"><span class="lab"><span class="n">11</span>RR monogram · small-size cut (16–31 px)</span><img src="../logo/svg/rr-monogram-small-lime.svg" style="height:110px;max-width:90%;margin-top:14px"></div><div class="p lt"><span class="lab"><span class="n">4</span>Wordmark · monogram-derived R</span><img src="../logo/svg/ride-rescue-wordmark-navy.svg" style="height:34px;max-width:90%;margin-top:14px"></div><div class="p gr"><span class="lab"><span class="n">10</span>Monochrome lime · navy/graphite only</span><img src="../logo/svg/ride-rescue-horizontal-lime.svg" style="height:52px;max-width:90%;margin-top:14px"></div><div class="p lt"><span class="lab"><span class="n">7</span>One-colour black</span><img src="../logo/svg/ride-rescue-horizontal-black.svg" style="height:52px;max-width:90%;margin-top:14px"></div><div class="p gr"><span class="lab"><span class="n">8</span>One-colour white</span><img src="../logo/svg/ride-rescue-horizontal-white.svg" style="height:52px;max-width:90%;margin-top:14px"></div></div></div></body></html>
+th{font:700 11px Inter;letter-spacing:.08em;text-transform:uppercase;color:#73777C}
+.sw{border-radius:12px;overflow:hidden;border:1px solid #d7dbdf;background:#fff}
+.sw .c{height:120px;display:flex;align-items:flex-end;padding:12px;font:italic 800 17px Saira;font-stretch:112%}
+.sw .m{padding:12px;font-size:12.5px;line-height:1.6;font-feature-settings:"tnum"}
+.btn{display:inline-flex;padding:12px 20px;border-radius:8px;font:700 15px Inter;margin:4px}
+.lad{display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap}
+.lad figure{margin:0;text-align:center;font:700 11px Inter;color:#73777C} .lad img{display:block;margin:0 auto 6px}
+.px{image-rendering:pixelated}
+.dont{flex-direction:column;gap:12px} .dont img{max-height:90px;max-width:80%}
+.x{font:700 13px Inter;color:#C4320A}
+</style></head><body><div class="board"><p class="kicker">Ride Rescue · Identity v2 · Logo system</p><h1>The RR is the identity</h1><p class="lead">Four levels, one construction. The <b>primary</b> carries the full story: RR, gear, Oregon peaks and the blue arc. The <b>secondary</b> drops the scenery. The <b>micro mark</b> is the RR alone, and it is what people should come to recognise. The gear and mountains support the RR; they never appear without it.</p><div class="g g2"><div class="p dk" style="min-height:400px"><span class="lab"><span class="tag">Primary</span>Stacked lockup</span><img src="../logo/svg/ride-rescue-stacked-dark.svg" style="height:330px;max-width:92%;margin-top:14px;"></div><div style="display:grid;gap:14px"><div class="p dk" style=""><span class="lab"><span class="tag">Primary</span>Horizontal lockup</span><img src="../logo/svg/ride-rescue-horizontal-dark.svg" style="width:92%;max-width:92%;margin-top:14px;"></div><div class="p lt" style=""><span class="lab">Horizontal · light</span><img src="../logo/svg/ride-rescue-horizontal-light.svg" style="width:92%;max-width:92%;margin-top:14px;"></div></div></div><div class="g g4"><div class="p dk" style=""><span class="lab"><span class="tag">Secondary</span>RR in gear</span><img src="../logo/svg/rr-gear-dark.svg" style="height:130px;max-width:92%;margin-top:14px;"></div><div class="p lt" style=""><span class="lab">Secondary · light</span><img src="../logo/svg/rr-gear-light.svg" style="height:130px;max-width:92%;margin-top:14px;"></div><div class="p dk" style=""><span class="lab"><span class="tag">Micro</span>RR monogram</span><img src="../logo/svg/rr-micro-white.svg" style="height:70px;max-width:92%;margin-top:14px;"></div><div class="p bl" style=""><span class="lab">Micro on blue</span><img src="../logo/svg/rr-micro-white.svg" style="height:70px;max-width:92%;margin-top:14px;"></div></div><div class="g g3"><div class="p dk" style=""><span class="lab">Compact horizontal (headers)</span><img src="../logo/svg/ride-rescue-horizontal-compact-dark.svg" style="width:92%;max-width:92%;margin-top:14px;"></div><div class="p lt" style=""><span class="lab">Wordmark + tagline</span><img src="../logo/svg/ride-rescue-wordmark-tagline-light.svg" style="width:92%;max-width:92%;margin-top:14px;"></div><div class="p dk" style=""><span class="lab">Wordmark</span><img src="../logo/svg/ride-rescue-wordmark-dark.svg" style="width:88%;max-width:92%;margin-top:14px;"></div></div><div class="g g4"><div class="p lt" style=""><span class="lab">One colour · black</span><img src="../logo/svg/ride-rescue-stacked-black.svg" style="height:150px;max-width:92%;margin-top:14px;"></div><div class="p dk" style=""><span class="lab">One colour · white</span><img src="../logo/svg/ride-rescue-stacked-white.svg" style="height:150px;max-width:92%;margin-top:14px;"></div><div class="p lt" style=""><span class="lab">Emblem · light</span><img src="../logo/svg/emblem-light.svg" style="height:150px;max-width:92%;margin-top:14px;"></div><div class="p dk" style=""><span class="lab">Emblem · dark</span><img src="../logo/svg/emblem-dark.svg" style="height:150px;max-width:92%;margin-top:14px;"></div></div></div></body></html>

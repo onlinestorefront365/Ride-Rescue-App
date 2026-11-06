@@ -7,13 +7,13 @@ import icons as icon_mod
 from build_stage3 import CORE, TINTS, FUNCTIONAL
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-OUT = os.path.join(ROOT, "identity", "boards")
+OUT = os.path.join(ROOT, "archive", "lane-v1", "identity", "boards")
 L = "../logo/svg/"
 NAVY, LIME, WHITE, GRAY, GRAY600, AMBER = "#14283D", "#B9E532", "#F5F6F2", "#87929D", "#66717D", "#D99B67"
 
 CSS = f"""
-@font-face{{font-family:Manrope;src:url(../../fonts/Manrope-Variable.ttf);font-weight:200 800}}
-@font-face{{font-family:Inter;src:url(../../fonts/Inter-Variable.ttf);font-weight:100 900}}
+@font-face{{font-family:Manrope;src:url(../../../../fonts/Manrope-Variable.ttf);font-weight:200 800}}
+@font-face{{font-family:Inter;src:url(../../../../fonts/Inter-Variable.ttf);font-weight:100 900}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:{WHITE};color:{NAVY};font-family:Inter,sans-serif;width:1200px}}
 .board{{padding:48px}}

@@ -16,7 +16,7 @@ from wordmark import text_path
 import icons as icon_mod
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-OUT = os.path.join(ROOT, "identity")
+OUT = os.path.join(ROOT, "archive", "lane-v1", "identity")
 
 # ------------------------------------------------------------------ colour
 CORE = {

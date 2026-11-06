@@ -13,7 +13,7 @@ import icons as icon_mod
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 IMG = os.path.join(ROOT, "assets", "img")
-ID = os.path.join(ROOT, "brand", "identity")
+ID = os.path.join(ROOT, "brand", "archive", "lane-v1", "identity")
 NAVY, LIME = "#14283D", "#B9E532"
 
 
