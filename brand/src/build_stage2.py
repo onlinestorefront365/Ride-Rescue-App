@@ -40,8 +40,8 @@ def vb(b, pad=0):
 def negative_space(key, mark):
     """The concept's key negative-space feature, for construction diagrams."""
     if key == "b-lane":
-        apex = 1.2 / (9 + 1.2) * H
-        return poly((0, apex), (9, H), (-9, H))
+        from geometry import lane_road, LANE_STAGE2
+        return lane_road(**LANE_STAGE2)
     if key == "a-tandem":
         hp = poly((7.2, 0), (46, 0), (46, H), (49.2, H))
         return inter(diff(rect(0, 0, 46, H), mark), hp)

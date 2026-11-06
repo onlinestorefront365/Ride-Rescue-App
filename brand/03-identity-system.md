@@ -12,6 +12,7 @@ Approved direction: **B · Lane**. Everything here is generated from `brand/src/
 | Cool Gray 600 `#66717D` added for text on light | Assumed (needed for the site's accessible body copy) |
 | Alert red `#B42318` / `#FF8A7A`, errors only, not a brand colour | **Needs approval**: any interface needs an error colour, and none of the brief's six can do the job accessibly |
 | Wordmark R's rebuilt from monogram geometry | Made in this stage (see "Wordmark" below) |
+| Road runs through the cap line, dividing the R's | **Approved revision** (Stage 3 review) |
 | 3D promotional logo | Deferred to Stage 5, derived from the flat master |
 
 ---
@@ -24,14 +25,14 @@ Approved direction: **B · Lane**. Everything here is generated from `brand/src/
 
 ### Monogram
 
-- One compound path: 3 contours (1 outer, 2 counters). No strokes, no overlaps, no transforms.
+- One compound path: 4 contours (one outer per R, 2 counters). No strokes, no overlaps, no transforms.
 - 64-unit cap height, 12-unit stroke, 38-unit bowls built as true semicircles.
-- The stems lean apart from −1.2 units at the cap line to 9 units at the baseline, so they fuse for the top 7.5 units. The road (lane) is the negative space between them.
+- The road (lane) is the negative space between the stems. It is 1.5 units wide at the cap line and 19 at the baseline, and it runs out through the top edge, so it fully divides the two R's and carries on to the horizon: the onward trajectory. The two R's are separate shapes, so in vinyl, embroidery and signage they are cut or stitched as two pieces with a fixed 1.5-unit gap at the top.
 - **Optical overshoot:** none is needed. The bowls meet the cap line as straight bars, not curves, so there is no curve-versus-flat size illusion to correct.
 
 ### Small-size cut (16–31 px)
 
-At 16 px the master's road disappears and its counters close. The small-size cut has a stroke of 10.5, bowls of 40, and a road 26 units wide at the baseline. The stems meet at the cap line instead of fusing. Use it **only** below 32 px: favicons, browser tabs, 16–24 px UI. Never use it as a substitute for the master.
+At 16 px the master's road disappears and its counters close. The small-size cut has a stroke of 10.5, bowls of 40, and a road 26 units wide at the baseline. Like the master, its road stays open at the cap line. Use it **only** below 32 px: favicons, browser tabs, 16–24 px UI. Never use it as a substitute for the master.
 
 ### Wordmark
 
@@ -156,7 +157,7 @@ Files: `identity/icons/svg/*.svg` (they use `currentColor`) and `identity/icons/
 
 | Element | File | Rule |
 |---|---|---|
-| Lane wedge | `graphics/lane-wedge-{raised,lime,navy}.svg` | The logo's negative space, extracted. One per layout, large and cropped. Navy Raised on navy; lime only at small sizes. Never rotated |
+| Lane wedge | `graphics/lane-wedge-{raised,lime,navy}.svg` | The logo's road, extracted: open at the top, like the mark. One per layout, large, and always running off the top edge of its frame toward the horizon. Navy Raised on navy; lime only at small sizes. Never rotated |
 | Road-marking pattern | `graphics/pattern-road-tile.svg` | Staggered dashes on the 12-unit rhythm. Navy Raised on navy only. Use for loading screens, banners and card backs |
 | Lane divider | `graphics/lane-divider-{navy,lime}.svg` | Tapered rule. The site uses it before every overline |
 | Direction wedge | `graphics/direction-wedge-{navy,lime}.svg` | "Next step" cue, in place of generic arrows |

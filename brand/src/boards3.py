@@ -201,7 +201,7 @@ def graphics_board():
 <div class="p lt" style="flex-direction:column;gap:14px"><span class="lab">Lane divider</span><img src="../graphics/lane-divider-navy.svg" style="width:85%;height:6px;margin-top:16px"><span class="note" style="font-size:12px">Tapered rule: section breaks</span></div>
 <div class="p lt"><span class="lab">Cut-corner frame</span><img src="../graphics/cut-corner-frame.svg" style="width:85%;margin-top:14px"></div></div>
 <div class="p lt" style="display:block"><span class="lab">How to use them</span><ul class="note" style="margin-top:24px;line-height:1.8">
-<li><b>Lane wedge</b>: the logo's negative space, extracted. Use it large and cropped, in Navy Raised on navy (lime only at small sizes), as the one hero accent. Never more than one per layout, never rotated, never beside the logo at a similar size.</li>
+<li><b>Lane wedge</b>: the logo's negative space, extracted. Use it large, always running off the top edge toward the horizon, in Navy Raised on navy (lime only at small sizes), as the one hero accent. Never more than one per layout, never rotated, never beside the logo at a similar size.</li>
 <li><b>Road-marking pattern</b>: staggered dashes on the 12-unit rhythm. Use it as a quiet background for app loading screens, social banners and the back of business cards, in navy-raised on navy only.</li>
 <li><b>Lane divider</b>: a tapered rule for section breaks and under headings. Navy on light, lime on dark.</li>
 <li><b>Direction wedge</b> (<code>graphics/direction-wedge-*.svg</code>): the wedge turned to point right. Use it for "next step" cues in place of generic arrows.</li>

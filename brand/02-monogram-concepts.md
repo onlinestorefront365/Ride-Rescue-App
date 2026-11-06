@@ -25,6 +25,8 @@ Size tests at 1024, 512, 128, 64 and 32 px: `exploration/stage-2/png/`.
 
 ## B · Lane (recommended)
 
+> **Revised in Stage 3:** the road now runs through the cap line and fully divides the two R's, rather than closing 7.5 units below the top. See `03-identity-system.md`. This section describes the concept as first presented.
+
 ![Lane](exploration/stage-2/board-b-lane.png)
 
 - **Idea:** the road ahead. Two R's stand back to back. Their stems lean apart, and the space between them becomes a road running to a vanishing point.

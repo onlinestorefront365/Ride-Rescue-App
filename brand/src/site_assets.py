@@ -8,7 +8,7 @@ import shutil
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from geometry import lane_mark, LANE_SMALL, to_d, bounds
+from geometry import lane_mark, lane_road, LANE_MASTER, LANE_SMALL, to_d, bounds
 import icons as icon_mod
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -39,7 +39,7 @@ def main():
         f.write(tile(lane_mark(**LANE_SMALL), 64, 0.84, 12))
     # full-bleed tile masters for PNG icons (platforms apply their own corner mask)
     with open(os.path.join(IMG, "app-tile-master.svg"), "w") as f:
-        f.write(tile(lane_mark(), 180, 0.66, 0))
+        f.write(tile(lane_mark(**LANE_MASTER), 180, 0.66, 0))
     shutil.copy(os.path.join(ID, "graphics", "pattern-road-tile.svg"), os.path.join(IMG, "pattern-road-tile.svg"))
     # icon sprite
     shutil.copy(os.path.join(ID, "icons", "sprite.svg"), os.path.join(IMG, "icons.svg"))

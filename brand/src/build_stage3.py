@@ -11,7 +11,7 @@ import sys
 from html import escape
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from geometry import lane_mark, LANE_SMALL, to_d, bounds, H, T, poly, translate
+from geometry import lane_mark, lane_road, LANE_MASTER, LANE_SMALL, to_d, bounds, H, T, poly, translate
 from wordmark import text_path
 import icons as icon_mod
 
@@ -109,7 +109,7 @@ COLORWAYS = {
 
 
 def build_logos(manifest):
-    master = lane_mark()
+    master = lane_mark(**LANE_MASTER)
     small = lane_mark(**LANE_SMALL)
     files = []
 
@@ -162,11 +162,10 @@ def build_logos(manifest):
 
     # monogram construction
     mx0, my0, mx1, my1 = bounds(master)
-    apex = 1.2 / (9 + 1.2) * H
     lines = "".join(f'<line x1="{mx0 - 6}" x2="{mx1 + 6}" y1="{y}" y2="{y}" stroke="{AMBER}" stroke-width=".35" stroke-dasharray="1.5 1"/>' for y in (0, T, 38 - T, 38, H))
     lines += f'<line x1="0" x2="0" y1="-4" y2="{H + 4}" stroke="{AMBER}" stroke-width=".35"/>'
     body = (f'<path fill="{NAVY}" fill-opacity=".1" stroke="{NAVY}" stroke-width=".45" d="{to_d(master)}"/>'
-            f'<path fill="{LIME}" d="{to_d(poly((0, apex), (9, H), (-9, H)))}"/>' + lines
+            f'<path fill="{LIME}" d="{to_d(lane_road(**LANE_MASTER))}"/>' + lines
             + "".join(f'<text x="{mx1 + 8}" y="{y + 1.5}" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="3.2" fill="{GRAY600}">{t}</text>'
                       for y, t in ((0, "cap line · 64"), (T, "stroke 12"), (38, "bowl 38"), (H, "baseline"))))
     write("logo/diagrams/monogram-construction.svg", svg_doc(f"{mx0 - 8} -6 {mx1 - mx0 + 44} {H + 12}", body))
@@ -188,10 +187,10 @@ def build_icons(manifest):
 
 # ------------------------------------------------------------------ graphic language
 def build_graphics():
-    apex = 1.2 / (9 + 1.2) * H
-    wedge = poly((0, apex), (9, H), (-9, H))
+    wedge = lane_road(**LANE_MASTER)
+    gb = LANE_MASTER["g_bot"]
     for cw, fill in (("lime", LIME), ("raised", "#24374B"), ("navy", NAVY)):
-        write(f"graphics/lane-wedge-{cw}.svg", svg_doc(f"-9 {apex:.2f} 18 {H - apex:.2f}", f'<path fill="{fill}" d="{to_d(wedge)}"/>'))
+        write(f"graphics/lane-wedge-{cw}.svg", svg_doc(f"{-gb} 0 {2 * gb} {H}", f'<path fill="{fill}" d="{to_d(wedge)}"/>'))
     # tapered divider: the lane laid on its side
     for cw, fill in (("navy", NAVY), ("lime", LIME)):
         write(f"graphics/lane-divider-{cw}.svg", svg_doc("0 0 240 6", f'<path fill="{fill}" d="M0 0L240 3L0 6Z"/>'))

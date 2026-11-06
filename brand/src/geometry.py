@@ -142,11 +142,12 @@ def concept_a_tandem():
     return union(r1, r2)
 
 
-def lane_mark(t=T, bowl_h=BOWL, g_top=-1.2, g_bot=9, bowl_dx=21, leg_dx=16):
+def lane_mark(t=T, bowl_h=BOWL, g_top=0.75, g_bot=9.5, bowl_dx=21, leg_dx=16):
     """The Lane monogram, parameterised.
 
     t       stroke weight            bowl_h  bowl height
-    g_top   lane half-width at the cap line (negative = stems fuse)
+    g_top   lane half-width at the cap line (positive = the road runs out
+            through the top edge and divides the two R's; negative = stems fuse)
     g_bot   lane half-width at the baseline
     bowl_dx distance from the stem's inner edge to the bowl's circle centre
     leg_dx  horizontal run of the leg from bowl junction to baseline
@@ -165,15 +166,28 @@ def lane_mark(t=T, bowl_h=BOWL, g_top=-1.2, g_bot=9, bowl_dx=21, leg_dx=16):
     return union(mirror_x(right, 0), right)
 
 
-# Approved master (Stage 3) and the small-size cut for 16–31 px.
-LANE_MASTER = dict()
-LANE_SMALL = dict(t=10.5, bowl_h=40, g_top=0, g_bot=13, bowl_dx=21, leg_dx=14)
+# Approved master and the small-size cut for 16–31 px.
+# Revision (Stage 3 review): the road now runs all the way through the cap
+# line, dividing the two R's and continuing to the horizon.
+LANE_MASTER = dict(g_top=0.75, g_bot=9.5)
+LANE_SMALL = dict(t=10.5, bowl_h=40, g_top=0.75, g_bot=13, bowl_dx=21, leg_dx=14)
+# Stage 2 concept as presented (stems fused at the top), kept so the
+# exploration package still rebuilds exactly.
+LANE_STAGE2 = dict(g_top=-1.2, g_bot=9)
+
+
+def lane_road(g_top=LANE_MASTER["g_top"], g_bot=LANE_MASTER["g_bot"], **_):
+    """The road: the negative space between the two R's, cap line to baseline."""
+    if g_top <= 0:
+        apex = -g_top / (g_bot - g_top) * H
+        return poly((0, apex), (g_bot, H), (-g_bot, H))
+    return poly((-g_top, 0), (g_top, 0), (g_bot, H), (-g_bot, H))
 
 
 def concept_b_lane():
-    """B — LANE. A mirrored pair (Я|R) whose stems lean apart, leaving a
-    tapered road in the negative space that runs to a vanishing point."""
-    return lane_mark(**LANE_MASTER)
+    """B — LANE (Stage 2 concept). A mirrored pair (Я|R) whose stems lean
+    apart, leaving a tapered road in the negative space."""
+    return lane_mark(**LANE_STAGE2)
 
 
 def concept_c_route():
