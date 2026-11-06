@@ -172,6 +172,15 @@ def wrench(angle=135, r_head=100, ring=14, seam=2.2, r_12=72, length=250, neck=7
     return union(outer, ratchet)
 
 
+RING = dict(r_out=100, r_12=86)
+
+
+def ratchet_ring(r_out=100, r_12=86):
+    """The 12-point ratchet ring on its own: a circle outside, a true
+    12-point (double hexagon) opening inside."""
+    return diff(circle(0, 0, r_out), twelve_point(r_12))
+
+
 def mountain(r_clip=62, gap=3.2, clip=None):
     """Ridge with snow caps, separated by a jagged gap. Returns (rock, snow).
     clip: optional Path the ridge is trimmed to (defaults to a circle of r_clip)."""
@@ -257,30 +266,54 @@ def halo(path, d):
     return union(path, _from_skia(stroked))
 
 
-def emblem(with_mountain=True, with_swoosh=True, knock=5, frame="wrench", wrench_kw=None):
-    """Returns dict of named layers (each a clean Path) in emblem coordinates."""
+def drop_specks(path, min_frac=0.02):
+    """Remove tiny slivers left by knock-outs (contours under min_frac of the largest)."""
+    cs = list(path.contours)
+    if not cs:
+        return path
+    big = max(abs(c.area) for c in cs)
+    out = Path()
+    for c in cs:
+        if abs(c.area) >= big * min_frac:
+            c.draw(out.getPen())
+    return out
+
+
+def emblem(with_mountain=True, with_swoosh=True, knock=5, frame="ring", rr_scale=None, frame_kw=None):
+    """Returns dict of named layers (each a clean Path) in emblem coordinates.
+
+    frame: "ring" (12-point ratchet ring, approved), "wrench" or "gear" (earlier rounds).
+    """
     rr = rr_mark()
     x0, y0, x1, y1 = bounds(rr)
-    # with the wrench the RR is larger and breaks over the head ring: the RR stays dominant
-    s = 1.34 if frame == "wrench" else 1.12
+    s = rr_scale or {"ring": 1.26, "wrench": 1.34, "gear": 1.12}[frame]
     rr = scale(move(rr, -(x0 + x1) / 2, -H), s)        # centred, baseline at y=0
     # with the mountain: baseline below centre so the peaks fill the top;
-    # without it: optically centred in the wrench head
-    rr = move(rr, 0, (92 if frame == "wrench" else 74) if with_mountain else H * s / 2 + 2)
+    # without it: optically centred in the frame
+    base = {"ring": 90, "wrench": 92, "gear": 74}[frame]
+    rr = move(rr, 0, base if with_mountain else H * s / 2 + 2)
     cut = halo(rr, knock)
     layers = {}
-    wk = dict(WRENCH, **(wrench_kw or {}))
-    g = diff(wrench(**wk) if frame == "wrench" else gear(), cut)
+    if frame == "ring":
+        fk = dict(RING, **(frame_kw or {}))
+        g, r_12 = ratchet_ring(**fk), fk["r_12"]
+    elif frame == "wrench":
+        fk = dict(WRENCH, **(frame_kw or {}))
+        g, r_12 = wrench(**fk), fk["r_12"]
+    else:
+        g, r_12 = gear(), None
+    g = diff(g, cut)
     if with_swoosh:
         sw = diff(swoosh(), cut)
         g = diff(g, halo(sw, knock * 0.6))
         layers["swoosh"] = sw
     if with_mountain:
-        if frame == "wrench":
-            # smaller peaks so the 12-point opening stays visible around them
+        if r_12:
+            # peaks trimmed inside the 12-point opening so the points stay visible
             rock, snow = mountain(clip=circle(0, 0, 200))
-            rock, snow = scale(rock, 0.9, 0, 30), scale(snow, 0.9, 0, 30)
-            clip = twelve_point(wk["r_12"] - 6)
+            k = 0.9 if frame == "wrench" else 1.0
+            rock, snow = scale(rock, k, 0, 30), scale(snow, k, 0, 30)
+            clip = twelve_point(r_12 - 6)
             rock, snow = inter(rock, clip), inter(snow, clip)
         else:
             rock, snow = mountain()
@@ -289,6 +322,7 @@ def emblem(with_mountain=True, with_swoosh=True, knock=5, frame="wrench", wrench
             sw_cut = halo(layers["swoosh"], knock * 0.6)
             rock, snow = diff(rock, sw_cut), diff(snow, sw_cut)
         layers["mountain"], layers["snow"] = rock, snow
-    layers["wrench"] = g
+    layers["frame"] = g
+    layers = {k: drop_specks(v) for k, v in layers.items()}
     layers["rr"] = rr
     return layers

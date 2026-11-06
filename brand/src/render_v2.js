@@ -47,7 +47,7 @@ async function tile(page, file, size, fill, out, bg) {
     await shot(page, path.join(PROMO, f), W, H, path.join(PNG, f.replace('.svg', '.png')), '#000');
   }
   for (const s of [16, 24, 32, 48]) await tile(page, path.join(SVG, 'rr-micro-white.svg'), s, 0.86, path.join(PNG, `tile-micro-${s}.png`), '#111315');
-  for (const s of [48, 64, 96]) await tile(page, path.join(SVG, 'rr-wrench-dark.svg'), s, 0.94, path.join(PNG, `tile-wrench-${s}.png`), '#111315');
+  for (const s of [32, 48, 64]) await tile(page, path.join(SVG, 'rr-ring-dark.svg'), s, 0.94, path.join(PNG, `tile-ring-${s}.png`), '#111315');
   for (const s of [64, 96, 128]) await tile(page, path.join(SVG, 'emblem-dark.svg'), s, 0.92, path.join(PNG, `tile-emblem-${s}.png`), '#111315');
 
   const BO = path.join(ID, 'boards');

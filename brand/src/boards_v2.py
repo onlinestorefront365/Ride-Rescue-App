@@ -63,16 +63,16 @@ def img(src, h=None, w=None, extra=""):
 
 def logo_system():
     b = head("Logo system", "The RR is the identity",
-             "Four levels, one construction. The <b>primary</b> carries the full story: RR, a 12-point ratcheting wrench, Oregon peaks and the blue arc. "
+             "Four levels, one construction. The <b>primary</b> carries the full story: RR, the 12-point ratchet ring, Oregon peaks and the blue arc. "
              "The <b>secondary</b> drops the scenery. The <b>micro mark</b> is the RR alone, and it is what people should come to recognise. "
-             "The wrench and mountains support the RR; they never appear without it.")
+             "The ring and mountains support the RR; they never appear without it.")
     b += '<div class="g g2">' + p("dk", '<span class="tag">Primary</span>Stacked lockup', img(L + "ride-rescue-stacked-dark.svg", 330), "min-height:400px") \
          + '<div style="display:grid;gap:14px">' \
          + p("dk", '<span class="tag">Primary</span>Horizontal lockup', img(L + "ride-rescue-horizontal-dark.svg", None, "92%")) \
          + p("lt", "Horizontal · light", img(L + "ride-rescue-horizontal-light.svg", None, "92%")) + '</div></div>'
     b += '<div class="g g4">' \
-         + p("dk", '<span class="tag">Secondary</span>RR in wrench', img(L + "rr-wrench-dark.svg", 140)) \
-         + p("lt", "Secondary · light", img(L + "rr-wrench-light.svg", 140)) \
+         + p("dk", '<span class="tag">Secondary</span>RR in ratchet ring', img(L + "rr-ring-dark.svg", 130)) \
+         + p("lt", "Secondary · light", img(L + "rr-ring-light.svg", 130)) \
          + p("dk", '<span class="tag">Micro</span>RR monogram', img(L + "rr-micro-white.svg", 70)) \
          + p("bl", "Micro on blue", img(L + "rr-micro-white.svg", 70)) + '</div>'
     b += '<div class="g g3">' \
@@ -103,25 +103,25 @@ def rules():
         f'<figure><img class="{c}" src="{PNG}{f}" width="{w}">{t}</figure>' for f, w, t, c in items) + "</div>"
     micro = lad([("tile-micro-16.png", 16, "16", ""), ("tile-micro-24.png", 24, "24", ""), ("tile-micro-32.png", 32, "32", ""),
                  ("tile-micro-48.png", 48, "48", ""), ("tile-micro-16.png", 96, "16 at 600%", "px")])
-    sec = lad([("tile-wrench-48.png", 48, "48", ""), ("tile-wrench-64.png", 64, "64", ""), ("tile-wrench-96.png", 96, "96", ""),
-               ("tile-wrench-48.png", 144, "48 at 300%", "px")])
+    sec = lad([("tile-ring-32.png", 32, "32", ""), ("tile-ring-48.png", 48, "48", ""), ("tile-ring-64.png", 64, "64", ""),
+               ("tile-ring-32.png", 96, "32 at 300%", "px")])
     emb = lad([("tile-emblem-64.png", 64, "64", ""), ("tile-emblem-96.png", 96, "96", ""), ("tile-emblem-128.png", 128, "128", ""),
                ("tile-emblem-64.png", 128, "64 at 200%", "px")])
     sizes = """<table><tr><th>Asset</th><th>Digital min</th><th>Print min</th><th>Below that, use</th></tr>
 <tr><td>Micro mark (RR)</td><td>16 px</td><td>5 mm tall</td><td>—</td></tr>
-<tr><td>Secondary (RR in wrench)</td><td>64 px</td><td>16 mm</td><td>Micro mark</td></tr>
+<tr><td>Secondary (RR in ratchet ring)</td><td>48 px</td><td>12 mm</td><td>Micro mark</td></tr>
 <tr><td>Primary emblem (with peaks)</td><td>96 px</td><td>25 mm</td><td>Secondary</td></tr>
 <tr><td>Stacked lockup</td><td>200 px wide</td><td>50 mm wide</td><td>Secondary + wordmark</td></tr>
 <tr><td>Horizontal lockup</td><td>280 px wide</td><td>70 mm wide</td><td>Compact horizontal</td></tr>
 <tr><td>Compact horizontal</td><td>180 px wide</td><td>45 mm wide</td><td>Micro mark</td></tr></table>"""
-    misuse = [("Wrench without the RR", "dont-wrench-only.svg"), ("Stretched", "ride-rescue-horizontal-light.svg"),
+    misuse = [("Ring without the RR", "dont-ring-only.svg"), ("Stretched", "ride-rescue-horizontal-light.svg"),
               ("Recoloured outside the palette", "ride-rescue-horizontal-light.svg"), ("Chrome version in one-colour use", None),
               ("Electric Blue body text on white", None), ("RR rebuilt in a font", None)]
     styles = ["", "transform:scaleX(.62)", "filter:hue-rotate(140deg) saturate(2)", "", "", ""]
     dont = ""
     for (t, f), st in zip(misuse, styles):
-        if f == "dont-wrench-only.svg":
-            art = f'<img src="{G}wrench-only.svg" style="height:100px">'
+        if f == "dont-ring-only.svg":
+            art = f'<img src="{G}ring-only.svg" style="height:90px">'
         elif f:
             art = f'<img src="{L}{f}" style="{st};max-height:70px">'
         elif t.startswith("Chrome"):

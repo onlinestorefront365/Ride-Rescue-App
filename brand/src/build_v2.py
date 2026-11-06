@@ -31,7 +31,7 @@ CORE = {
 }
 DERIVED = {  # proposed refinements, each mixed from the core four
     "action-blue": ("#0973E5", "Blue + 11% carbon. Buttons and links: white label 4.57:1, on white 4.57:1"),
-    "steel-600":   ("#73777C", "Silver + 45% carbon. Wrench on light backgrounds, muted text on white (4.51:1)"),
+    "steel-600":   ("#73777C", "Silver + 45% carbon. Ratchet ring on light backgrounds, muted text on white (4.51:1)"),
     "carbon-raised": ("#1F2123", "Carbon + 6% white. Cards and surfaces on dark"),
     "carbon-line": ("#37393A", "Carbon + 16% white. Borders and dividers on dark"),
     "steel-tint":  ("#F0F2F3", "Silver + 75% white. Alternate light section"),
@@ -44,10 +44,10 @@ STEEL600 = "#73777C"
 
 # colourways: layer -> colour
 WAYS = {
-    "dark":  dict(rr=WHITE, wrench=SILVER, mountain=SILVER, snow=WHITE, swoosh=BLUE, ride=SILVER, rescue=BLUE, tag=WHITE, rule=BLUE),
-    "light": dict(rr=CARBON, wrench=STEEL600, mountain=STEEL600, snow=SILVER, swoosh=BLUE, ride=CARBON, rescue=BLUE, tag=CARBON, rule=BLUE),
-    "black": {k: "#000000" for k in ("rr", "wrench", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
-    "white": {k: WHITE for k in ("rr", "wrench", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
+    "dark":  dict(rr=WHITE, frame=SILVER, mountain=SILVER, snow=WHITE, swoosh=BLUE, ride=SILVER, rescue=BLUE, tag=WHITE, rule=BLUE),
+    "light": dict(rr=CARBON, frame=STEEL600, mountain=STEEL600, snow=SILVER, swoosh=BLUE, ride=CARBON, rescue=BLUE, tag=CARBON, rule=BLUE),
+    "black": {k: "#000000" for k in ("rr", "frame", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
+    "white": {k: WHITE for k in ("rr", "frame", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
 }
 WAY_USE = {
     "dark": "Full colour on Carbon Black or dark photography (primary)",
@@ -156,7 +156,7 @@ def horizontal(full_emblem=True):
 
 def render_parts(parts, way):
     c = WAYS[way]
-    order = ["wrench", "mountain", "snow", "swoosh", "rr", "ride", "rescue", "rule", "tag"]
+    order = ["frame", "mountain", "snow", "swoosh", "rr", "ride", "rescue", "rule", "tag"]
     return "".join(layer(parts[k], c[k]) for k in order if k in parts)
 
 
@@ -201,14 +201,14 @@ PROMO_DEFS = """
 
 def promo_svg(parts, b, pad):
     x0, y0, x1, y1 = b
-    fills = dict(wrench="url(#steel)", mountain="url(#steel)", snow="#ffffff", swoosh="url(#blue)",
+    fills = dict(frame="url(#steel)", mountain="url(#steel)", snow="#ffffff", swoosh="url(#blue)",
                  rr="url(#chrome)", ride="url(#chrome)", rescue="url(#blue)", rule="url(#blue)", tag="#ffffff")
     body = PROMO_DEFS
     rx, ry, rw, rh = x0 - pad, y0 - pad, x1 - x0 + 2 * pad, y1 - y0 + 2 * pad
     body += f'<rect x="{rx}" y="{ry}" width="{rw}" height="{rh}" fill="url(#carbon)"/>'
     body += f'<rect x="{rx}" y="{ry}" width="{rw}" height="{rh}" fill="url(#vignette)"/>'
     body += '<g filter="url(#lift)">'
-    for k in ["wrench", "mountain", "snow"]:
+    for k in ["frame", "mountain", "snow"]:
         if k in parts:
             body += f'<path fill="{fills[k]}" filter="url(#bevel)" d="{to_d(parts[k])}"/>'
     if "swoosh" in parts:
@@ -231,7 +231,7 @@ def build_logos(manifest):
         write(n, doc(bounds(mark), layer(mark, col), title="Ride Rescue RR monogram"))
         entries.append((n, "Micro mark (RR)", way))
 
-    for full, name, label in ((False, "rr-wrench", "Secondary: RR in wrench"), (True, "emblem", "Primary emblem")):
+    for full, name, label in ((False, "rr-ring", "Secondary: RR in ratchet ring"), (True, "emblem", "Primary emblem")):
         L = emblem_layers(full)
         for way in WAYS:
             n = f"logo/svg/{name}-{way}.svg"
@@ -249,12 +249,12 @@ def build_logos(manifest):
         write(n, promo_svg(P, ub(*P.values()), 40))
         entries.append((n, label + ", promotional chrome", "Banners, ads, presentations, video. Never as the master"))
 
-    # secondary horizontal: RR-in-wrench + wordmark (no mountain), for headers
+    # secondary horizontal: RR-in-ring + wordmark (no mountain), for headers
     P = horizontal(False)
     for way in WAYS:
         n = f"logo/svg/ride-rescue-horizontal-compact-{way}.svg"
         write(n, doc(ub(*P.values()), render_parts(P, way)))
-        entries.append((n, "Compact horizontal (wrench, no mountain)", WAY_USE[way]))
+        entries.append((n, "Compact horizontal (ring, no mountain)", WAY_USE[way]))
 
     # wordmark alone, and wordmark + tagline
     cap = 64
@@ -362,13 +362,13 @@ def build_graphics():
     write("graphics/ridge-silver.svg", doc(bounds(ridge), layer(ridge, SILVER)))
     write("graphics/ridge-carbon-raised.svg", doc(bounds(ridge), layer(ridge, "#1F2123")))
     # 12-point ratchet ring: corners and section heads
-    from rr2 import twelve_point, wrench, WRENCH
+    from rr2 import twelve_point, ratchet_ring, RING
     from geometry import circle as _circle, diff as _diff
     ring = _diff(_circle(0, 0, 84), twelve_point(72))
     write("graphics/ratchet-ring-silver.svg", doc(bounds(ring), layer(ring, SILVER)))
     write("graphics/ratchet-ring-raised.svg", doc(bounds(ring), layer(ring, "#1F2123")))
-    w = wrench(**WRENCH)
-    write("graphics/wrench-only.svg", doc(bounds(w), layer(w, STEEL600)))  # misuse board only
+    rg = ratchet_ring(**RING)
+    write("graphics/ring-only.svg", doc(bounds(rg), layer(rg, STEEL600)))  # misuse board only
     # carbon-fibre plain weave tile (textures and promotional backgrounds only)
     tile = (PROMO_DEFS.split("<pattern")[0] + '</defs>'
             '<rect width="8" height="8" fill="url(#towH)"/><rect x="8" y="8" width="8" height="8" fill="url(#towH)"/>'

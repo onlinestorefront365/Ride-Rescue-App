@@ -19,7 +19,7 @@ brand/
   03-identity-system.md       identity v2 standards (current)
   fonts/                      Saira, Inter, Manrope + licences (SIL OFL 1.1)
   src/
-    rr2.py                    v2 geometry: RR, 12-point ratcheting wrench, peaks, arc, true offsets (skia)
+    rr2.py                    v2 geometry: RR, 12-point ratchet ring, peaks, arc, true offsets (skia)
     build_v2.py               v2 logos, promo chrome, tokens, icons, graphics
     boards_v2.py, render_v2.js  v2 boards, PNG exports, size tests, PDF
     wordmark.py               font outlining (set_text) + custom-glyph override
@@ -43,4 +43,4 @@ pip install skia-pathops skia-python fonttools brotli   # skia-python needs libE
 python brand/src/build_v2.py && python brand/src/boards_v2.py && node brand/src/render_v2.js
 ```
 
-Change a number in `src/rr2.py` (stroke, bowl, slant, road-line run, `WRENCH` angle and proportions, knock-out gaps) and rebuild. Every SVG, PNG, board and the PDF regenerates from the same source.
+Change a number in `src/rr2.py` (stroke, bowl, slant, road-line run, `RING` radii, knock-out gaps) and rebuild. Every SVG, PNG, board and the PDF regenerates from the same source.
