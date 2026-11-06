@@ -131,10 +131,52 @@ def gear(n=9, r_tip=100, r_root=85, r_hole=68, tip_frac=0.34, root_frac=0.5):
     return diff(union(body, *teeth), circle(0, 0, r_hole))
 
 
-def mountain(r_clip=62, gap=3.2):
-    """Ridge with snow caps, separated by a jagged gap. Returns (rock, snow)."""
+def rotate(path, deg, cx=0, cy=0):
+    a = math.radians(deg)
+    c, s_ = math.cos(a), math.sin(a)
+    return xform(path, c, s_, -s_, c, cx - c * cx + s_ * cy, cy - s_ * cx - c * cy)
+
+
+def twelve_point(r, rot=0):
+    """12-point (double-hex) socket opening: two hexagons 30 degrees apart."""
+    def hexagon(off):
+        return poly(*[(r * math.cos(math.radians(off + k * 60)), r * math.sin(math.radians(off + k * 60))) for k in range(6)])
+    return union(hexagon(rot), hexagon(rot + 30))
+
+
+WRENCH = dict(angle=135, r_head=100, ring=14, seam=2.2, r_12=72, length=218, neck=74, shank=42,
+              r_open=43, jaw=34, jaw_tilt=15)
+
+
+def wrench(angle=135, r_head=100, ring=14, seam=2.2, r_12=72, length=250, neck=74, shank=42,
+           r_open=46, jaw=36, jaw_tilt=15):
+    """12-point ratcheting combination wrench; box-end head centred on the origin.
+
+    Box end: outer head ring, a thin seam, then the ratchet ring with a
+    12-point opening (the seam is what reads as 'ratcheting').
+    Shank: flares into the head like a forged neck, then runs straight.
+    Open end: jaw tilted 15 degrees, the classic combination-wrench cue.
+    angle: handle direction in screen degrees (135 = lower left).
+    """
+    r0 = r_head * 0.72
+    shank_poly = poly((r0, -neck / 2), (r_head + 22, -shank / 2), (length - r_open * 0.6, -shank / 2 * 0.94),
+                      (length - r_open * 0.6, shank / 2 * 0.94), (r_head + 22, shank / 2), (r0, neck / 2))
+    open_head = circle(length, 0, r_open)
+    slot = union(rect(length - 4, -jaw / 2, length + r_open + 10, jaw / 2), circle(length - 4, 0, jaw / 2))
+    slot = rotate(slot, jaw_tilt, length, 0)
+    open_end = diff(open_head, slot)
+    body = union(circle(0, 0, r_head), shank_poly, open_end)
+    body = rotate(body, angle)
+    outer = diff(body, circle(0, 0, r_head - ring))
+    ratchet = diff(circle(0, 0, r_head - ring - seam), twelve_point(r_12))
+    return union(outer, ratchet)
+
+
+def mountain(r_clip=62, gap=3.2, clip=None):
+    """Ridge with snow caps, separated by a jagged gap. Returns (rock, snow).
+    clip: optional Path the ridge is trimmed to (defaults to a circle of r_clip)."""
     ridge = poly((-62, 12), (-38, -24), (-28, -16), (-6, -56), (12, -30), (26, -42), (62, 4), (62, 40), (-62, 40))
-    ridge = inter(ridge, circle(0, 0, r_clip))
+    ridge = inter(ridge, clip if clip is not None else circle(0, 0, r_clip))
     jag = [(-62, -34), (-40, -34), (-30, -28), (-22, -30), (-12, -22), (-4, -36), (6, -26), (14, -32),
            (20, -24), (30, -32), (40, -22), (62, -10)]
     above = poly((-80, -90), (80, -90), *[(x, y) for x, y in reversed(jag)][:0], (80, jag[-1][1]),
@@ -215,29 +257,38 @@ def halo(path, d):
     return union(path, _from_skia(stroked))
 
 
-def emblem(with_mountain=True, with_swoosh=True, knock=5):
+def emblem(with_mountain=True, with_swoosh=True, knock=5, frame="wrench", wrench_kw=None):
     """Returns dict of named layers (each a clean Path) in emblem coordinates."""
     rr = rr_mark()
     x0, y0, x1, y1 = bounds(rr)
-    s = 1.12
+    # with the wrench the RR is larger and breaks over the head ring: the RR stays dominant
+    s = 1.34 if frame == "wrench" else 1.12
     rr = scale(move(rr, -(x0 + x1) / 2, -H), s)        # centred, baseline at y=0
     # with the mountain: baseline below centre so the peaks fill the top;
-    # without it: optically centred in the gear
-    rr = move(rr, 0, 74 if with_mountain else H * s / 2 + 2)
+    # without it: optically centred in the wrench head
+    rr = move(rr, 0, (92 if frame == "wrench" else 74) if with_mountain else H * s / 2 + 2)
     cut = halo(rr, knock)
     layers = {}
-    g = diff(gear(), cut)
+    wk = dict(WRENCH, **(wrench_kw or {}))
+    g = diff(wrench(**wk) if frame == "wrench" else gear(), cut)
     if with_swoosh:
         sw = diff(swoosh(), cut)
         g = diff(g, halo(sw, knock * 0.6))
         layers["swoosh"] = sw
     if with_mountain:
-        rock, snow = mountain()
+        if frame == "wrench":
+            # smaller peaks so the 12-point opening stays visible around them
+            rock, snow = mountain(clip=circle(0, 0, 200))
+            rock, snow = scale(rock, 0.9, 0, 30), scale(snow, 0.9, 0, 30)
+            clip = twelve_point(wk["r_12"] - 6)
+            rock, snow = inter(rock, clip), inter(snow, clip)
+        else:
+            rock, snow = mountain()
         rock, snow = diff(rock, cut), diff(snow, cut)
         if with_swoosh:
             sw_cut = halo(layers["swoosh"], knock * 0.6)
             rock, snow = diff(rock, sw_cut), diff(snow, sw_cut)
         layers["mountain"], layers["snow"] = rock, snow
-    layers["gear"] = g
+    layers["wrench"] = g
     layers["rr"] = rr
     return layers

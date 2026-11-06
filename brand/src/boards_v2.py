@@ -63,16 +63,16 @@ def img(src, h=None, w=None, extra=""):
 
 def logo_system():
     b = head("Logo system", "The RR is the identity",
-             "Four levels, one construction. The <b>primary</b> carries the full story: RR, gear, Oregon peaks and the blue arc. "
+             "Four levels, one construction. The <b>primary</b> carries the full story: RR, a 12-point ratcheting wrench, Oregon peaks and the blue arc. "
              "The <b>secondary</b> drops the scenery. The <b>micro mark</b> is the RR alone, and it is what people should come to recognise. "
-             "The gear and mountains support the RR; they never appear without it.")
+             "The wrench and mountains support the RR; they never appear without it.")
     b += '<div class="g g2">' + p("dk", '<span class="tag">Primary</span>Stacked lockup', img(L + "ride-rescue-stacked-dark.svg", 330), "min-height:400px") \
          + '<div style="display:grid;gap:14px">' \
          + p("dk", '<span class="tag">Primary</span>Horizontal lockup', img(L + "ride-rescue-horizontal-dark.svg", None, "92%")) \
          + p("lt", "Horizontal · light", img(L + "ride-rescue-horizontal-light.svg", None, "92%")) + '</div></div>'
     b += '<div class="g g4">' \
-         + p("dk", '<span class="tag">Secondary</span>RR in gear', img(L + "rr-gear-dark.svg", 130)) \
-         + p("lt", "Secondary · light", img(L + "rr-gear-light.svg", 130)) \
+         + p("dk", '<span class="tag">Secondary</span>RR in wrench', img(L + "rr-wrench-dark.svg", 140)) \
+         + p("lt", "Secondary · light", img(L + "rr-wrench-light.svg", 140)) \
          + p("dk", '<span class="tag">Micro</span>RR monogram', img(L + "rr-micro-white.svg", 70)) \
          + p("bl", "Micro on blue", img(L + "rr-micro-white.svg", 70)) + '</div>'
     b += '<div class="g g3">' \
@@ -103,25 +103,25 @@ def rules():
         f'<figure><img class="{c}" src="{PNG}{f}" width="{w}">{t}</figure>' for f, w, t, c in items) + "</div>"
     micro = lad([("tile-micro-16.png", 16, "16", ""), ("tile-micro-24.png", 24, "24", ""), ("tile-micro-32.png", 32, "32", ""),
                  ("tile-micro-48.png", 48, "48", ""), ("tile-micro-16.png", 96, "16 at 600%", "px")])
-    sec = lad([("tile-gear-32.png", 32, "32", ""), ("tile-gear-48.png", 48, "48", ""), ("tile-gear-64.png", 64, "64", ""),
-               ("tile-gear-32.png", 96, "32 at 300%", "px")])
+    sec = lad([("tile-wrench-48.png", 48, "48", ""), ("tile-wrench-64.png", 64, "64", ""), ("tile-wrench-96.png", 96, "96", ""),
+               ("tile-wrench-48.png", 144, "48 at 300%", "px")])
     emb = lad([("tile-emblem-64.png", 64, "64", ""), ("tile-emblem-96.png", 96, "96", ""), ("tile-emblem-128.png", 128, "128", ""),
                ("tile-emblem-64.png", 128, "64 at 200%", "px")])
     sizes = """<table><tr><th>Asset</th><th>Digital min</th><th>Print min</th><th>Below that, use</th></tr>
 <tr><td>Micro mark (RR)</td><td>16 px</td><td>5 mm tall</td><td>—</td></tr>
-<tr><td>Secondary (RR in gear)</td><td>48 px</td><td>12 mm</td><td>Micro mark</td></tr>
+<tr><td>Secondary (RR in wrench)</td><td>64 px</td><td>16 mm</td><td>Micro mark</td></tr>
 <tr><td>Primary emblem (with peaks)</td><td>96 px</td><td>25 mm</td><td>Secondary</td></tr>
 <tr><td>Stacked lockup</td><td>200 px wide</td><td>50 mm wide</td><td>Secondary + wordmark</td></tr>
 <tr><td>Horizontal lockup</td><td>280 px wide</td><td>70 mm wide</td><td>Compact horizontal</td></tr>
 <tr><td>Compact horizontal</td><td>180 px wide</td><td>45 mm wide</td><td>Micro mark</td></tr></table>"""
-    misuse = [("Gear without the RR", "dont-gear-only.svg"), ("Stretched", "ride-rescue-horizontal-light.svg"),
+    misuse = [("Wrench without the RR", "dont-wrench-only.svg"), ("Stretched", "ride-rescue-horizontal-light.svg"),
               ("Recoloured outside the palette", "ride-rescue-horizontal-light.svg"), ("Chrome version in one-colour use", None),
               ("Electric Blue body text on white", None), ("RR rebuilt in a font", None)]
     styles = ["", "transform:scaleX(.62)", "filter:hue-rotate(140deg) saturate(2)", "", "", ""]
     dont = ""
     for (t, f), st in zip(misuse, styles):
-        if f == "dont-gear-only.svg":
-            art = f'<img src="{G}gear-only.svg" style="height:90px">'
+        if f == "dont-wrench-only.svg":
+            art = f'<img src="{G}wrench-only.svg" style="height:100px">'
         elif f:
             art = f'<img src="{L}{f}" style="{st};max-height:70px">'
         elif t.startswith("Chrome"):
@@ -221,22 +221,22 @@ def icons_graphics():
         f'<div style="display:flex;gap:8px;align-items:center;background:{CARBON};border-radius:8px;padding:6px 10px">{icon_mod.svg(k, 24, SILVER)}{icon_mod.svg(k, 16, BLUE)}</div>'
         f'<span style="font:700 11.5px Inter;text-align:center">{label}</span></div>'
         for k, (label, _) in icon_mod.ICONS.items())
-    hero = (f'<div class="p dk" style="min-height:300px;overflow:hidden;justify-content:flex-start;align-items:flex-end;padding:36px">'
+    hero = (f'<div class="p dk" style="min-height:300px;overflow:hidden;background:url({G}carbon-fibre-tile.svg) 0 0/16px 16px;justify-content:flex-start;align-items:flex-end;padding:36px">'
             f'<img src="{G}ridge-band-raised.svg" style="position:absolute;left:0;bottom:0;width:100%">'
-            f'<img src="{G}gear-quarter-raised.svg" style="position:absolute;right:0;top:0;height:230px;transform:scaleX(-1) rotate(90deg);transform-origin:center">'
+            f'<img src="{G}ratchet-ring-raised.svg" style="position:absolute;right:-90px;top:-90px;height:300px">'
             f'<img src="{G}swoosh-blue.svg" style="position:absolute;right:150px;top:36px;height:200px">'
             f'<div style="position:relative"><p style="font:italic 600 13px Saira;letter-spacing:.16em;color:{BLUE};margin:0 0 8px">MOBILE DIAGNOSTICS • PROGRAMMING • REPAIRS</p>'
             f'<p style="font:italic 800 42px/1.05 Saira;font-stretch:112%;margin:0;max-width:620px">Dealer-level programming. Without the dealer.</p>'
             f'<img src="{G}road-line-blue.svg" style="width:300px;height:5px;margin-top:16px;display:block"></div></div>')
     b = head("Icons & graphic language", "Supporting cast",
              "The 17 service icons carry over unchanged in drawing and are recoloured: carbon on light, silver on dark, Electric Blue only for the active or selected state. "
-             "Supporting graphics are cut from the emblem itself: the road line, the arc, the ridge and a gear quarter. They support the RR; none of them is ever used as a logo.")
+             "Supporting graphics are cut from the emblem itself: the road line, the arc, the ridge and the 12-point ratchet ring. Carbon fibre is a texture for promotional and background use only. They support the RR; none of them is ever used as a logo.")
     b += '<div class="g">' + hero + '</div>'
     b += f'<div class="g g4">' \
          + p("dk", "Road line", f'<img src="{G}road-line-blue.svg" style="width:85%;height:8px;margin-top:14px">') \
          + p("dk", "Arc", img(G + "swoosh-blue.svg", 120)) \
          + p("dk", "Ridge (horizon band)", img(G + "ridge-band-silver.svg", None, "92%")) \
-         + p("dk", "Gear quarter", img(G + "gear-quarter-silver.svg", 110)) + '</div>'
+         + p("dk", "12-point ratchet ring", img(G + "ratchet-ring-silver.svg", 110)) + '</div>'
     b += f'<div class="g" style="grid-template-columns:repeat(6,1fr)">{cells}</div>'
     return page(b)
 

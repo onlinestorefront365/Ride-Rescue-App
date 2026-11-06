@@ -31,7 +31,7 @@ CORE = {
 }
 DERIVED = {  # proposed refinements, each mixed from the core four
     "action-blue": ("#0973E5", "Blue + 11% carbon. Buttons and links: white label 4.57:1, on white 4.57:1"),
-    "steel-600":   ("#73777C", "Silver + 45% carbon. Gear on light backgrounds, muted text on white (4.51:1)"),
+    "steel-600":   ("#73777C", "Silver + 45% carbon. Wrench on light backgrounds, muted text on white (4.51:1)"),
     "carbon-raised": ("#1F2123", "Carbon + 6% white. Cards and surfaces on dark"),
     "carbon-line": ("#37393A", "Carbon + 16% white. Borders and dividers on dark"),
     "steel-tint":  ("#F0F2F3", "Silver + 75% white. Alternate light section"),
@@ -44,10 +44,10 @@ STEEL600 = "#73777C"
 
 # colourways: layer -> colour
 WAYS = {
-    "dark":  dict(rr=WHITE, gear=SILVER, mountain=SILVER, snow=WHITE, swoosh=BLUE, ride=SILVER, rescue=BLUE, tag=WHITE, rule=BLUE),
-    "light": dict(rr=CARBON, gear=STEEL600, mountain=STEEL600, snow=SILVER, swoosh=BLUE, ride=CARBON, rescue=BLUE, tag=CARBON, rule=BLUE),
-    "black": {k: "#000000" for k in ("rr", "gear", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
-    "white": {k: WHITE for k in ("rr", "gear", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
+    "dark":  dict(rr=WHITE, wrench=SILVER, mountain=SILVER, snow=WHITE, swoosh=BLUE, ride=SILVER, rescue=BLUE, tag=WHITE, rule=BLUE),
+    "light": dict(rr=CARBON, wrench=STEEL600, mountain=STEEL600, snow=SILVER, swoosh=BLUE, ride=CARBON, rescue=BLUE, tag=CARBON, rule=BLUE),
+    "black": {k: "#000000" for k in ("rr", "wrench", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
+    "white": {k: WHITE for k in ("rr", "wrench", "mountain", "snow", "swoosh", "ride", "rescue", "tag", "rule")},
 }
 WAY_USE = {
     "dark": "Full colour on Carbon Black or dark photography (primary)",
@@ -156,13 +156,20 @@ def horizontal(full_emblem=True):
 
 def render_parts(parts, way):
     c = WAYS[way]
-    order = ["gear", "mountain", "snow", "swoosh", "rr", "ride", "rescue", "rule", "tag"]
+    order = ["wrench", "mountain", "snow", "swoosh", "rr", "ride", "rescue", "rule", "tag"]
     return "".join(layer(parts[k], c[k]) for k in order if k in parts)
 
 
 # ------------------------------------------------------------------ promotional chrome
 PROMO_DEFS = """
 <defs>
+ <linearGradient id="towH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d0e10"/><stop offset=".5" stop-color="#2b2f34"/><stop offset="1" stop-color="#0d0e10"/></linearGradient>
+ <linearGradient id="towV" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b0c0d"/><stop offset=".5" stop-color="#1f2226"/><stop offset="1" stop-color="#0b0c0d"/></linearGradient>
+ <pattern id="carbon" width="16" height="16" patternUnits="userSpaceOnUse">
+  <rect width="8" height="8" fill="url(#towH)"/><rect x="8" y="8" width="8" height="8" fill="url(#towH)"/>
+  <rect x="8" width="8" height="8" fill="url(#towV)"/><rect y="8" width="8" height="8" fill="url(#towV)"/>
+ </pattern>
+ <radialGradient id="vignette" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset=".6" stop-color="#000" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity=".8"/></radialGradient>
  <radialGradient id="bg" cx="50%" cy="38%" r="75%">
   <stop offset="0" stop-color="#2a2e33"/><stop offset=".55" stop-color="#16181b"/><stop offset="1" stop-color="#0a0b0c"/>
  </radialGradient>
@@ -194,12 +201,14 @@ PROMO_DEFS = """
 
 def promo_svg(parts, b, pad):
     x0, y0, x1, y1 = b
-    fills = dict(gear="url(#steel)", mountain="url(#steel)", snow="#ffffff", swoosh="url(#blue)",
+    fills = dict(wrench="url(#steel)", mountain="url(#steel)", snow="#ffffff", swoosh="url(#blue)",
                  rr="url(#chrome)", ride="url(#chrome)", rescue="url(#blue)", rule="url(#blue)", tag="#ffffff")
     body = PROMO_DEFS
-    body += f'<rect x="{x0 - pad}" y="{y0 - pad}" width="{x1 - x0 + 2 * pad}" height="{y1 - y0 + 2 * pad}" fill="url(#bg)"/>'
+    rx, ry, rw, rh = x0 - pad, y0 - pad, x1 - x0 + 2 * pad, y1 - y0 + 2 * pad
+    body += f'<rect x="{rx}" y="{ry}" width="{rw}" height="{rh}" fill="url(#carbon)"/>'
+    body += f'<rect x="{rx}" y="{ry}" width="{rw}" height="{rh}" fill="url(#vignette)"/>'
     body += '<g filter="url(#lift)">'
-    for k in ["gear", "mountain", "snow"]:
+    for k in ["wrench", "mountain", "snow"]:
         if k in parts:
             body += f'<path fill="{fills[k]}" filter="url(#bevel)" d="{to_d(parts[k])}"/>'
     if "swoosh" in parts:
@@ -222,7 +231,7 @@ def build_logos(manifest):
         write(n, doc(bounds(mark), layer(mark, col), title="Ride Rescue RR monogram"))
         entries.append((n, "Micro mark (RR)", way))
 
-    for full, name, label in ((False, "rr-gear", "Secondary: RR in gear"), (True, "emblem", "Primary emblem")):
+    for full, name, label in ((False, "rr-wrench", "Secondary: RR in wrench"), (True, "emblem", "Primary emblem")):
         L = emblem_layers(full)
         for way in WAYS:
             n = f"logo/svg/{name}-{way}.svg"
@@ -240,12 +249,12 @@ def build_logos(manifest):
         write(n, promo_svg(P, ub(*P.values()), 40))
         entries.append((n, label + ", promotional chrome", "Banners, ads, presentations, video. Never as the master"))
 
-    # secondary horizontal: RR-in-gear + wordmark (no mountain), for headers
+    # secondary horizontal: RR-in-wrench + wordmark (no mountain), for headers
     P = horizontal(False)
     for way in WAYS:
         n = f"logo/svg/ride-rescue-horizontal-compact-{way}.svg"
         write(n, doc(ub(*P.values()), render_parts(P, way)))
-        entries.append((n, "Compact horizontal (gear, no mountain)", WAY_USE[way]))
+        entries.append((n, "Compact horizontal (wrench, no mountain)", WAY_USE[way]))
 
     # wordmark alone, and wordmark + tagline
     cap = 64
@@ -334,7 +343,7 @@ def intersect_box(path, x0, y0, x1, y1):
 
 
 def build_graphics():
-    from rr2 import swoosh, gear, mountain
+    from rr2 import swoosh, mountain
     # road line (tapered both ends)
     for c, col in (("blue", BLUE), ("carbon", CARBON), ("silver", SILVER)):
         write(f"graphics/road-line-{c}.svg", doc((0, 0, 480, 8), layer(road_rule(480, 8), col)))
@@ -352,13 +361,19 @@ def build_graphics():
     write("graphics/ridge-band-silver.svg", doc(bounds(band), layer(band, SILVER)))
     write("graphics/ridge-silver.svg", doc(bounds(ridge), layer(ridge, SILVER)))
     write("graphics/ridge-carbon-raised.svg", doc(bounds(ridge), layer(ridge, "#1F2123")))
-    # gear segment: a quarter of the gear ring, for corners and section heads
-    g = gear()
-    from geometry import inter, rect
-    q = inter(g, rect(0, -110, 110, 0))
-    write("graphics/gear-quarter-silver.svg", doc(bounds(q), layer(q, SILVER)))
-    write("graphics/gear-quarter-raised.svg", doc(bounds(q), layer(q, "#1F2123")))
-    write("graphics/gear-only.svg", doc(bounds(g), layer(g, STEEL600)))  # for the misuse board only
+    # 12-point ratchet ring: corners and section heads
+    from rr2 import twelve_point, wrench, WRENCH
+    from geometry import circle as _circle, diff as _diff
+    ring = _diff(_circle(0, 0, 84), twelve_point(72))
+    write("graphics/ratchet-ring-silver.svg", doc(bounds(ring), layer(ring, SILVER)))
+    write("graphics/ratchet-ring-raised.svg", doc(bounds(ring), layer(ring, "#1F2123")))
+    w = wrench(**WRENCH)
+    write("graphics/wrench-only.svg", doc(bounds(w), layer(w, STEEL600)))  # misuse board only
+    # carbon-fibre plain weave tile (textures and promotional backgrounds only)
+    tile = (PROMO_DEFS.split("<pattern")[0] + '</defs>'
+            '<rect width="8" height="8" fill="url(#towH)"/><rect x="8" y="8" width="8" height="8" fill="url(#towH)"/>'
+            '<rect x="8" width="8" height="8" fill="url(#towV)"/><rect y="8" width="8" height="8" fill="url(#towV)"/>')
+    write("graphics/carbon-fibre-tile.svg", f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">{tile}</svg>\n')
 
 
 def main():

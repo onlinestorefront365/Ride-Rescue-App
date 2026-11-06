@@ -26,23 +26,23 @@
       "use": "black"
     },
     {
-      "file": "logo/svg/rr-gear-dark.svg",
-      "type": "Secondary: RR in gear",
+      "file": "logo/svg/rr-wrench-dark.svg",
+      "type": "Secondary: RR in wrench",
       "use": "Full colour on Carbon Black or dark photography (primary)"
     },
     {
-      "file": "logo/svg/rr-gear-light.svg",
-      "type": "Secondary: RR in gear",
+      "file": "logo/svg/rr-wrench-light.svg",
+      "type": "Secondary: RR in wrench",
       "use": "Full colour on white and light backgrounds"
     },
     {
-      "file": "logo/svg/rr-gear-black.svg",
-      "type": "Secondary: RR in gear",
+      "file": "logo/svg/rr-wrench-black.svg",
+      "type": "Secondary: RR in wrench",
       "use": "One colour: single-colour print, engraving, fax, stamps"
     },
     {
-      "file": "logo/svg/rr-gear-white.svg",
-      "type": "Secondary: RR in gear",
+      "file": "logo/svg/rr-wrench-white.svg",
+      "type": "Secondary: RR in wrench",
       "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
     },
     {
@@ -117,22 +117,22 @@
     },
     {
       "file": "logo/svg/ride-rescue-horizontal-compact-dark.svg",
-      "type": "Compact horizontal (gear, no mountain)",
+      "type": "Compact horizontal (wrench, no mountain)",
       "use": "Full colour on Carbon Black or dark photography (primary)"
     },
     {
       "file": "logo/svg/ride-rescue-horizontal-compact-light.svg",
-      "type": "Compact horizontal (gear, no mountain)",
+      "type": "Compact horizontal (wrench, no mountain)",
       "use": "Full colour on white and light backgrounds"
     },
     {
       "file": "logo/svg/ride-rescue-horizontal-compact-black.svg",
-      "type": "Compact horizontal (gear, no mountain)",
+      "type": "Compact horizontal (wrench, no mountain)",
       "use": "One colour: single-colour print, engraving, fax, stamps"
     },
     {
       "file": "logo/svg/ride-rescue-horizontal-compact-white.svg",
-      "type": "Compact horizontal (gear, no mountain)",
+      "type": "Compact horizontal (wrench, no mountain)",
       "use": "One colour reversed: vinyl on dark vehicles, embroidery on dark garments, dark photos"
     },
     {
