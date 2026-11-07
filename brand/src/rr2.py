@@ -311,9 +311,10 @@ def emblem(with_mountain=True, with_swoosh=True, knock=5, frame="ring", rr_scale
         if r_12:
             # peaks trimmed inside the 12-point opening so the points stay visible
             rock, snow = mountain(clip=circle(0, 0, 200))
-            k = 0.9 if frame == "wrench" else 1.0
-            rock, snow = scale(rock, k, 0, 30), scale(snow, k, 0, 30)
-            clip = twelve_point(r_12 - 6)
+            # ring: smaller, narrower peaks leave dark sky so the 12 points read
+            k, pivot, inset = (0.9, 30, 6) if frame == "wrench" else (0.74, 40, 10)
+            rock, snow = scale(rock, k, 0, pivot), scale(snow, k, 0, pivot)
+            clip = twelve_point(r_12 - inset)
             rock, snow = inter(rock, clip), inter(snow, clip)
         else:
             rock, snow = mountain()

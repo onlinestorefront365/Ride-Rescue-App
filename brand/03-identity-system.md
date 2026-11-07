@@ -4,7 +4,7 @@ Direction: your chrome, gear and mountain reference image, with the gear replace
 
 Boards: `identity/boards/*.png`, or all six pages in `identity/ride-rescue-identity-v2.pdf`.
 
-The previous Lane / navy-lime system is archived in `archive/lane-v1/`. **The live website still uses it** until this system is approved; then the site is re-skinned and gains a repairs section.
+The previous Lane / navy-lime system is archived in `archive/lane-v1/`. The website now uses v2.
 
 ## Decisions log
 
@@ -17,10 +17,12 @@ The previous Lane / navy-lime system is archived in `archive/lane-v1/`. **The li
 | Palette: Electric Blue `#087FFF`, Steel Silver `#C3C9D0`, Carbon Black `#111315`, White | **Agreed** |
 | Tagline "Mobile Diagnostics • Programming • Repairs" (repairs added to services) | **Agreed** |
 | Identity first, website after approval | **Agreed** |
-| Saira Italic (wdth 112, wght 800) for display; Inter for body | Chosen this stage: closest open-licence match to the reference lettering |
-| RR construction: "Drive" (first R's leg runs on as a road line past the second R) | Chosen this stage. Pair and Interlock rejected: generic, and the first R read as "F" |
-| Action Blue `#0973E5` for buttons/links on light | **Needs approval**: white on Electric Blue is 3.83:1 and fails for button text |
-| Steel 600 `#73777C` for the ring on light backgrounds and for muted text | **Needs approval**: Steel Silver on white is 1.67:1 |
+| Saira Italic (wdth 112, wght 800) for display; Inter for body | **Approved** |
+| RR construction: "Drive" (first R's leg runs on as a road line past the second R) | **Approved** |
+| Action Blue `#0973E5` for buttons/links on light | **Approved** |
+| Steel 600 `#73777C` for the ring on light backgrounds and for muted text | **Approved** |
+| Whole identity v2 system | **Approved** (2026-11-07) |
+| Website re-skinned to v2, repairs section added | **Done** |
 
 ---
 
@@ -47,7 +49,7 @@ Colourways for every flat lockup: `dark` (full colour on Carbon), `light` (full 
 - **Ratchet ring:** a 100-unit radius circle with a true 12-point (double hexagon) opening of 86 units. The ring is 14 units thick at the points and about 23 at the notches. The 12 points are what make it read as a ratchet or socket rather than a plain ring.
 - **History:** a full combination wrench (box end, shank and open-end jaw) was built and rejected in favour of the ring alone, which is more compact and still reads as a tool. That geometry is kept in `rr2.wrench()`.
 - **RR in the ring:** the RR is scaled to break over the ring, so it stays dominant. The ring is knocked out around it with a 5-unit gap (true offset, round joins).
-- **Peaks:** a two-summit ridge with snow caps separated by a jagged 3.2-unit gap, trimmed inside the 12-point opening so the points stay visible. The caps are separate shapes, so they still read in one colour, vinyl and embroidery.
+- **Peaks:** a two-summit ridge with snow caps separated by a jagged 3.2-unit gap, scaled to 74% and trimmed 10 units inside the 12-point opening, so dark sky keeps the points visible. The caps are separate shapes, so they still read in one colour, vinyl and embroidery.
 - **Arc:** a tapered crescent in Electric Blue, knocked out of the ring with a 3-unit gap. Slivers left by knock-outs are removed automatically.
 - **Secondary mark:** with no peaks, the RR sits optically centred in the ring.
 
@@ -154,6 +156,5 @@ Both families are SIL OFL 1.1 and free for commercial print, web, app and vehicl
 
 ## Next
 
-1. You approve the system, plus Action Blue and Steel 600.
-2. **Website:** re-skin to Carbon, Steel and Electric Blue with the new lockups and favicon; add the repairs service section; update the tagline and metadata.
-3. **Stage 4:** App Store and Google Play icons (micro mark on carbon fibre with an Electric Blue accent), social avatar and banners, splash screen.
+1. **Stage 4:** App Store and Google Play icons (micro mark on carbon fibre with an Electric Blue accent), social avatar and banners, splash screen.
+2. **Stage 5:** vehicle, uniform and print applications, with a Pantone/vinyl match for Electric Blue.

@@ -59,13 +59,19 @@
     if (e.target.name === 'delivery') syncZip();
   });
 
-  // "Book remote" / "Book on-site" buttons preselect the delivery option.
-  document.querySelectorAll('[data-delivery]').forEach(function (btn) {
+  // "Book remote" / "Book on-site" / "Book a repair" buttons preselect the form.
+  document.querySelectorAll('[data-delivery], [data-service]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var radio = form.querySelector('input[name="delivery"][value="' + btn.dataset.delivery + '"]');
+      var radio = btn.dataset.delivery && form.querySelector('input[name="delivery"][value="' + btn.dataset.delivery + '"]');
       if (radio) {
         radio.checked = true;
         syncZip();
+      }
+      if (btn.dataset.service) {
+        var select = document.getElementById('service');
+        Array.prototype.forEach.call(select.options, function (opt) {
+          if (opt.text === btn.dataset.service) select.value = opt.value;
+        });
       }
     });
   });

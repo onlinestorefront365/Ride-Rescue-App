@@ -4,8 +4,8 @@
 |---|---|---|
 | 1 · Creative strategy | Positioning still applies; colour, type and logo direction superseded by v2 | [`01-creative-strategy.md`](01-creative-strategy.md) |
 | 2 · Logo development | Lane chosen, later replaced by v2 | [`02-monogram-concepts.md`](02-monogram-concepts.md), [`exploration/stage-2/`](exploration/stage-2/) |
-| 3 · Identity system **v2** | Built, awaiting approval | [`03-identity-system.md`](03-identity-system.md), [`identity/`](identity/) |
-| Archived: Lane v1 | Still used by the live website until v2 is approved | [`archive/lane-v1/`](archive/lane-v1/) |
+| 3 · Identity system **v2** | Approved; live on the website | [`03-identity-system.md`](03-identity-system.md), [`identity/`](identity/) |
+| Archived: Lane v1 | Retired | [`archive/lane-v1/`](archive/lane-v1/) |
 | 4 · Digital assets | Not started | — |
 | 5 · Physical applications | Not started | — |
 | 6 · Final production | Not started | — |

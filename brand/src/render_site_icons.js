@@ -21,6 +21,13 @@ const jobs = [
     await page.waitForFunction(() => document.images[0].complete);
     await page.screenshot({ path: path.join(IMG, out), omitBackground: true, clip: { x: 0, y: 0, width: size, height: size } });
   }
+  // social share image (1200x630): chrome stacked logo on carbon fibre
+  const promo = path.resolve(__dirname, '..', 'identity', 'logo', 'promo', 'ride-rescue-stacked-chrome.svg');
+  const tileSvg = fs.readFileSync(path.join(IMG, 'carbon-fibre-tile.svg')).toString('base64');
+  await page.setViewportSize({ width: 1200, height: 630 });
+  await page.setContent(`<html><body style="margin:0;width:1200px;height:630px;background:#111315 url(data:image/svg+xml;base64,${tileSvg}) 0 0/20px 20px;display:flex;align-items:center;justify-content:center"><img src="data:image/svg+xml;base64,${fs.readFileSync(promo).toString('base64')}" style="height:600px"></body></html>`);
+  await page.waitForFunction(() => document.images[0].complete);
+  await page.screenshot({ path: path.join(IMG, 'og-image.jpg'), type: 'jpeg', quality: 85, clip: { x: 0, y: 0, width: 1200, height: 630 } });
   await browser.close();
   console.log('site icons rendered');
 })();
