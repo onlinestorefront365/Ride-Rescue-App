@@ -1,6 +1,6 @@
 # Ride Rescue
 
-Landing page for Ride Rescue. The first service offered is FORScan diagnostics, module programming and feature configuration for Ford, Lincoln and Mazda vehicles, done remotely or on-site.
+Landing page for Ride Rescue: mobile diagnostics, programming and repairs for Ford, Lincoln and Mazda vehicles, done remotely or on-site.
 
 It's a static site: plain HTML, CSS and JavaScript with no build step and no dependencies.
 
@@ -8,8 +8,12 @@ It's a static site: plain HTML, CSS and JavaScript with no build step and no dep
 index.html              Main page
 assets/css/styles.css   Styles (design tokens at the top, light + dark mode)
 assets/js/main.js       Mobile nav, booking form validation and submission
-assets/img/favicon.svg  Logo / favicon
+assets/img/             Logo, favicon, icons, pattern (generated from brand/)
+assets/fonts/           Saira Italic + Inter, self-hosted WOFF2 (SIL OFL 1.1)
+brand/                  Brand identity system: strategy, logo, icons, tokens
 ```
+
+Brand assets are generated: edit `brand/src/` and run `python brand/src/site_assets.py && node brand/src/render_site_icons.js` rather than editing `assets/img/` by hand. See `brand/README.md`.
 
 ## Run locally
 

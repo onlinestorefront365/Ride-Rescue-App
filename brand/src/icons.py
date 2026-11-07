@@ -1,0 +1,123 @@
+"""Ride Rescue — service icon family.
+
+Grid rules (shared by every icon):
+  - 24 x 24 grid, 2-unit padding: live area 2..22
+  - 2-unit stroke, round caps, round joins, no fills
+  - corners: 2-unit radius on boxes, 1-unit on small details
+  - vehicles face right (direction of travel), wheels r = 2 on y = 17
+  - one idea per icon; badges (bolt, clock, plus) sit bottom-right
+Icons are stroked SVG so stroke weight stays editable; they scale with
+`currentColor`.
+"""
+
+# Shared vehicle body, side view, facing right. Wheels drawn separately.
+CAR = ("M5 17H3.5A1.5 1.5 0 0 1 2 15.5V12.5L4.2 8.6A1.2 1.2 0 0 1 5.2 8H13.3L17 12.5H20.5"
+       "A1.5 1.5 0 0 1 22 14V15.5A1.5 1.5 0 0 1 20.5 17H19 M9 17H15 M2 12.5H17")
+WHEELS = '<circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>'
+
+
+def car(dy=0):
+    if not dy:
+        return f'<path d="{CAR}"/>{WHEELS}'
+    return f'<g transform="translate(0 {dy})"><path d="{CAR}"/>{WHEELS}</g>'
+
+
+ICONS = {
+    # --- roadside services (brief section 7) ---------------------------------
+    "towing": (
+        "Towing",
+        '<path d="M4 17H3.5A1.5 1.5 0 0 1 2 15.5V13H13V7.5A1.5 1.5 0 0 1 14.5 6H17L21 10.5V15.5'
+        'A1.5 1.5 0 0 1 19.5 17H19 M8 17H15 M13 10.5H21 M10 13L4.5 4.5V8"/>'
+        '<path d="M4.5 8A1.75 1.75 0 1 0 6.25 9.75"/>'
+        '<circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+    ),
+    "battery-jump": (
+        "Battery jump-start",
+        '<rect x="3" y="7" width="18" height="13" rx="2"/>'
+        '<path d="M7 7V4.5H9.5V7 M14.5 7V4.5H17V7"/>'
+        '<path d="M13 10L10.5 13.5H13.5L11 17"/>',
+    ),
+    "flat-tire": (
+        "Flat tire assistance",
+        '<path d="M8.2 18.2A8.3 8.3 0 1 1 15.8 18.2L18 20H6Z"/>'
+        '<circle cx="12" cy="10.5" r="3"/><path d="M2 20H22"/>',
+    ),
+    "tire-replacement": (
+        "Tire replacement",
+        '<circle cx="11" cy="13" r="7"/><circle cx="11" cy="13" r="2.5"/>'
+        '<path d="M15.5 3.5A9.5 9.5 0 0 1 20.8 10"/><path d="M21.6 6.6L20.8 10L17.6 8.9"/>',
+    ),
+    "lockout": (
+        "Vehicle lockout",
+        '<rect x="4" y="10.5" width="16" height="11" rx="2"/>'
+        '<path d="M8 10.5V7A4 4 0 0 1 16 7V10.5"/><path d="M12 15V17"/>',
+    ),
+    "fuel-delivery": (
+        "Emergency fuel delivery",
+        '<path d="M4 21V5A2 2 0 0 1 6 3H12A2 2 0 0 1 14 5V21 M2.5 21H15.5 M7 7H11V10H7Z"/>'
+        '<path d="M14 9H15.5A1.5 1.5 0 0 1 17 10.5V16A1.5 1.5 0 0 0 20 16V8.5L17.5 6"/>',
+    ),
+    "breakdown": (
+        "Vehicle breakdown",
+        car(2)
+        + '<path d="M8 3.5Q9 4.75 8 6Q7 7.25 8 8.5 M12 2.5Q13 3.75 12 5Q11 6.25 12 7.5 M16 3.5Q17 4.75 16 6Q15 7.25 16 8.5"/>',
+    ),
+    "roadside-emergency": (
+        "Roadside emergency",
+        '<path d="M10.3 3.9L2.6 17.5A2 2 0 0 0 4.3 20.5H19.7A2 2 0 0 0 21.4 17.5L13.7 3.9A2 2 0 0 0 10.3 3.9Z"/>'
+        '<path d="M12 9V13.5 M12 17V17.01"/>',
+    ),
+    "service-request": (
+        "Service request",
+        '<rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M10 18.5H14"/>'
+        '<path d="M12 7.5V13.5 M9 10.5H15"/>',
+    ),
+    "location": (
+        "Location tracking",
+        '<path d="M20 10C20 16 12 22 12 22S4 16 4 10A8 8 0 0 1 20 10Z"/><circle cx="12" cy="10" r="3"/>',
+    ),
+    "technician-arrival": (
+        "Technician arrival",
+        '<circle cx="9" cy="7" r="3.5"/><path d="M2.5 21V19.5A5.5 5.5 0 0 1 8 14H10"/>'
+        '<circle cx="17" cy="17" r="4.5"/><path d="M17 14.8V17L18.5 18.5"/>',
+    ),
+    "support": (
+        "Customer support",
+        '<path d="M4 14V12A8 8 0 0 1 20 12V14"/>'
+        '<path d="M4 14H6A1 1 0 0 1 7 15V18A1 1 0 0 1 6 19H5A1 1 0 0 1 4 18Z"/>'
+        '<path d="M20 14H18A1 1 0 0 0 17 15V18A1 1 0 0 0 18 19H19A1 1 0 0 0 20 18Z"/>'
+        '<path d="M20 18V19A3 3 0 0 1 17 22H13"/>',
+    ),
+    # --- diagnostics & programming (current Ride Rescue services) -------------
+    "diagnostics": (
+        "Diagnostics & module scan",
+        '<rect x="2" y="3.5" width="20" height="14" rx="2"/>'
+        '<path d="M5.5 11H8L9.8 7.5L12.6 14.5L14.4 11H18.5 M8.5 21H15.5 M12 17.5V21"/>',
+    ),
+    "module-programming": (
+        "Module programming",
+        '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M10 10H14V14H10Z"/>'
+        '<path d="M9.5 2V6 M14.5 2V6 M9.5 18V22 M14.5 18V22 M2 9.5H6 M2 14.5H6 M18 9.5H22 M18 14.5H22"/>',
+    ),
+    "key-programming": (
+        "Key programming",
+        '<circle cx="7.5" cy="16.5" r="4.5"/><path d="M10.7 13.3L19 5 M16 8L18.5 10.5 M19 5L21 7"/>',
+    ),
+    "feature-config": (
+        "Feature configuration",
+        '<path d="M3 7H11 M17 7H21 M3 17H5 M11 17H21"/>'
+        '<circle cx="14" cy="7" r="3"/><circle cx="8" cy="17" r="3"/>',
+    ),
+    "service-procedures": (
+        "Service procedures",
+        '<path d="M12.5 11.5L4.5 19.5"/><path d="M20.2 8.6A5 5 0 1 1 15.4 3.8L13.8 7L17 10.2Z"/>',
+    ),
+}
+
+
+def svg(key, size=24, color="currentColor"):
+    """Standalone SVG for one icon."""
+    _, body = ICONS[key]
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}" viewBox="0 0 24 24" '
+            f'fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+            f'{body}</svg>\n')
