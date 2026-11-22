@@ -28,7 +28,7 @@ Swap in real values for:
 
 | Placeholder | Where |
 |---|---|
-| `$[XX]` | pricing cards in `index.html` |
+| `$[XX]` | the Quick config, Programming and On-site pricing cards in `index.html` |
 
 Also review the policy claims ("No fix, no charge", "Revert on request ... at no charge") and remove any you won't guarantee.
 
@@ -84,3 +84,7 @@ TTL: Automatic. Leave the MX and SPF (TXT `v=spf1 ...`) records alone; they run 
 
 - https://riderescueapp.com loads the site; https://www.riderescueapp.com redirects to it.
 - Send one real booking request and confirm Formspree delivers it.
+
+## Prices that appear in more than one place
+
+Brake prices ($50 disc, $75 drum, per wheel) and the free-diagnosis rule ($99 or more) appear in the hero chips, the repairs section, the pricing section and the FAQ in `index.html`. Change them everywhere together. The policy is recorded in `brand/03-identity-system.md`.

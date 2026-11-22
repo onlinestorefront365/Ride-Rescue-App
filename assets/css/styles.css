@@ -304,18 +304,48 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .service:hover .icon { color: var(--rr-electric-blue); }
 
-/* ---------- Repairs ---------- */
-.repairs-inner { display: grid; gap: 32px; align-items: center; }
+/* ---------- Repairs & brakes ---------- */
+.repairs-inner { display: grid; gap: 32px; align-items: start; }
 .repairs-inner .section-lead { color: #C9CED4; }
-.repairs-inner .checklist { margin-bottom: 28px; color: var(--text); }
-.repairs-icon {
-  display: none; width: 220px; height: 220px; justify-self: center;
-  fill: none; stroke: var(--rr-carbon-line); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
-}
+.repairs-inner .checklist { margin-bottom: 24px; color: var(--text); }
+.repairs-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 @media (min-width: 900px) {
-  .repairs-inner { grid-template-columns: 1fr 280px; }
-  .repairs-icon { display: block; }
+  .repairs-inner { grid-template-columns: 1fr 340px; gap: 48px; }
+  .brake-card { position: sticky; top: 100px; }
 }
+
+.brake-card {
+  background: var(--rr-carbon-raised); border: 1px solid var(--rr-carbon-line);
+  border-top: 4px solid var(--rr-electric-blue); border-radius: var(--radius); padding: 24px;
+  color: var(--rr-white);
+}
+.brake-card h3 {
+  font-family: var(--font-display); font-style: italic; font-weight: 800;
+  font-size: 1.35rem; margin: 0 0 16px; color: var(--rr-white);
+}
+.brake-prices { margin: 0 0 16px; }
+.brake-prices div {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 14px 0; border-bottom: 1px solid var(--rr-carbon-line);
+}
+.brake-prices div:first-child { padding-top: 0; }
+.brake-prices dt { font-weight: 600; color: #C9CED4; }
+.brake-prices dd { margin: 0; color: #A3AAB2; font-size: .95rem; }
+.brake-prices strong {
+  font-family: var(--font-ui); font-feature-settings: "tnum"; font-size: 2.1rem; font-weight: 700;
+  color: var(--rr-white); letter-spacing: -.01em; margin-right: 2px;
+}
+.brake-note { font-size: .9rem; color: #A3AAB2; margin: 0; }
+
+/* Callout: policy notes such as the free-diagnosis offer */
+.callout {
+  background: var(--selected-bg); border-left: 4px solid var(--ink);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px; margin: 24px 0 0; color: var(--text);
+}
+.callout strong { font-weight: 700; }
+.section-dark .callout { background: rgba(8, 127, 255, .14); margin-top: 0; }
+.pricing-note, .section .grid + .callout { margin-top: 20px; }
 
 .option { display: flex; flex-direction: column; }
 .option h3 { font-size: 1.4rem; }
@@ -363,6 +393,7 @@ a:hover { text-decoration-thickness: 2px; }
   color: var(--text) !important; margin: .25em 0 .75em; letter-spacing: -.01em;
 }
 .price-amount span { font-size: .95rem; font-weight: 600; color: var(--text-muted); margin-right: 4px; }
+.price-amount-2 { margin-top: -.45em; }
 .price-featured { border: 2px solid var(--ink); }
 .badge {
   position: absolute; top: -12px; left: 24px; margin: 0;

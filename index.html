@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ride Rescue | Mobile Diagnostics, Programming &amp; Repairs</title>
-  <meta name="description" content="Mobile diagnostics, programming and repairs for Ford, Lincoln and Mazda vehicles. Dealer-level FORScan work without dealer prices or wait times, remote or on-site in Oregon.">
+  <meta name="description" content="Mobile diagnostics, programming and repairs for Ford, Lincoln and Mazda vehicles, including brakes from $50 per wheel. Dealer-level work without dealer prices or wait times, remote or on-site in Oregon.">
   <meta name="theme-color" content="#111315">
   <link rel="canonical" href="https://riderescueapp.com/">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -40,6 +40,7 @@
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Module programming after replacement"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "PATS key programming"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "TPMS programming and tire size calibration"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brake service (disc and drum)"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile vehicle repairs"}}
     ]
   }
@@ -84,9 +85,10 @@
           <a href="#services" class="btn btn-ghost">See what we fix</a>
         </div>
         <ul class="trust-chips" aria-label="Why customers choose Ride Rescue">
+          <li>Brakes from $50 per wheel</li>
+          <li>Free diagnosis on repairs of $99+</li>
           <li>Remote or on-site</li>
           <li>Full module backup before every write</li>
-          <li>No fix, no charge</li>
         </ul>
       </div>
     </section>
@@ -180,18 +182,30 @@
     <section class="section section-dark" id="repairs" aria-labelledby="repairs-title">
       <div class="container repairs-inner">
         <div>
-          <p class="eyebrow">Mobile repairs</p>
-          <h2 id="repairs-title">When the fix needs more than a laptop.</h2>
-          <p class="section-lead">We come to you and do the repair at your vehicle: at home, at work, or wherever it stopped. Tell us what's going on and we'll confirm we can do it, and quote it, before you book.</p>
+          <p class="eyebrow">Mobile repairs &amp; brakes</p>
+          <h2 id="repairs-title">Brakes, and everything else that needs more than a laptop.</h2>
+          <p class="section-lead">We come to you and do the repair at your vehicle: at home, at work, or wherever it stopped. Tell us what's going on and we'll confirm we can do it, and quote it in writing, before you book.</p>
           <ul class="checklist">
+            <li>Brake service on most makes and models, disc or drum</li>
             <li>Replacement modules and sensors, installed and programmed in the same visit</li>
             <li>Electrical and warning-light faults traced to the cause, then fixed</li>
             <li>Battery and charging-system problems</li>
             <li>If a job needs a lift or a shop, we'll tell you up front rather than guess</li>
           </ul>
-          <a href="#book" class="btn btn-primary" data-service="Repair (on-site)" data-delivery="onsite">Book a repair</a>
+          <p class="callout"><strong>Free diagnosis</strong> when the repair comes to $99 or more. Under $99, our standard diagnostic rate applies.</p>
+          <div class="repairs-ctas">
+            <a href="#book" class="btn btn-primary" data-service="Brake service (disc or drum)" data-delivery="onsite">Book brakes</a>
+            <a href="#book" class="btn btn-ghost" data-service="Repair (on-site)" data-delivery="onsite">Book a repair</a>
+          </div>
         </div>
-        <svg class="repairs-icon" aria-hidden="true" focusable="false"><use href="assets/img/icons.svg#rr-service-procedures"></use></svg>
+        <aside class="brake-card" aria-labelledby="brakes-title">
+          <h3 id="brakes-title">Brake service</h3>
+          <dl class="brake-prices">
+            <div><dt>Disc brakes</dt><dd><strong>$50</strong> per wheel</dd></div>
+            <div><dt>Drum brakes</dt><dd><strong>$75</strong> per wheel</dd></div>
+          </dl>
+          <p class="brake-note">For most makes and models. We confirm your vehicle and give you the price in writing before any work starts.</p>
+        </aside>
       </div>
     </section>
 
@@ -227,8 +241,35 @@
       </div>
     </section>
 
+    <!-- RESPECT FIRST -->
+    <section class="section section-alt" id="respect" aria-labelledby="respect-title">
+      <div class="container">
+        <p class="eyebrow">Respect first</p>
+        <h2 id="respect-title">Ask anything. Nobody here talks down to you.</h2>
+        <p class="section-lead">If you've ever been talked over, upsold or left guessing at a shop, that's not how we work. Car trouble is stressful enough, so you get straight answers and a price you agreed to.</p>
+        <div class="grid grid-4">
+          <div class="feature">
+            <h3>Plain language</h3>
+            <p>We explain what's wrong and why it matters, without jargon, and we answer every question.</p>
+          </div>
+          <div class="feature">
+            <h3>See it for yourself</h3>
+            <p>We show you the worn part or the scan result, so you can see what we see.</p>
+          </div>
+          <div class="feature">
+            <h3>Price in writing first</h3>
+            <p>No surprise add-ons. If we find something else, we tell you and you decide.</p>
+          </div>
+          <div class="feature">
+            <h3>Your call, your pace</h3>
+            <p>No pressure and no upsell. Take your time, get a second opinion, or have someone you trust there with you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS -->
-    <section class="section section-alt" id="how" aria-labelledby="how-title">
+    <section class="section" id="how" aria-labelledby="how-title">
       <div class="container">
         <p class="eyebrow">How it works</p>
         <h2 id="how-title">Four steps, no surprises</h2>
@@ -254,7 +295,7 @@
     </section>
 
     <!-- SAFETY -->
-    <section class="section" id="safety" aria-labelledby="safety-title">
+    <section class="section section-alt" id="safety" aria-labelledby="safety-title">
       <div class="container">
         <p class="eyebrow">Why Ride Rescue</p>
         <h2 id="safety-title">We treat your modules like they're ours</h2>
@@ -280,12 +321,12 @@
     </section>
 
     <!-- PRICING -->
-    <section class="section section-alt" id="pricing" aria-labelledby="pricing-title">
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
       <div class="container">
         <p class="eyebrow">Pricing</p>
         <h2 id="pricing-title">Simple, up-front pricing</h2>
         <p class="section-lead">Every job gets a confirmed quote before we start. If we can't do it, you don't pay.</p>
-        <div class="grid grid-3">
+        <div class="grid grid-4">
           <article class="card price">
             <h3>Quick config</h3>
             <p class="price-amount"><span>from</span> $[XX]</p>
@@ -306,6 +347,15 @@
             </ul>
           </article>
           <article class="card price">
+            <h3>Brakes</h3>
+            <p class="price-amount"><span>disc</span> $50 <span>per wheel</span></p>
+            <p class="price-amount price-amount-2"><span>drum</span> $75 <span>per wheel</span></p>
+            <ul class="checklist">
+              <li>Most makes and models</li>
+              <li>Price confirmed in writing first</li>
+            </ul>
+          </article>
+          <article class="card price">
             <h3>On-site / advanced</h3>
             <p class="price-amount"><span>from</span> $[XX]</p>
             <ul class="checklist">
@@ -315,11 +365,12 @@
             </ul>
           </article>
         </div>
+        <p class="callout"><strong>Free diagnosis</strong> with any repair of $99 or more. If the repair comes to less than $99, our standard diagnostic rate applies.</p>
       </div>
     </section>
 
     <!-- BOOKING FORM -->
-    <section class="section" id="book" aria-labelledby="book-title">
+    <section class="section section-alt" id="book" aria-labelledby="book-title">
       <div class="container narrow">
         <p class="eyebrow">Book a session</p>
         <h2 id="book-title">Tell us about your vehicle</h2>
@@ -404,6 +455,7 @@
                 <option>TPMS programming</option>
                 <option>Service procedure (injectors, DPF, relearn, etc.)</option>
                 <option>FORScan setup help</option>
+                <option>Brake service (disc or drum)</option>
                 <option>Repair (on-site)</option>
                 <option>Not sure / something else</option>
               </select>
@@ -450,7 +502,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+    <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="container narrow">
         <p class="eyebrow">FAQ</p>
         <h2 id="faq-title">Questions we get a lot</h2>
@@ -478,6 +530,14 @@
           <details>
             <summary>How is travel charged for on-site visits?</summary>
             <p>We're based in Tenmile, OR (97481) and travel anywhere in Oregon. The first 15 miles are free. Beyond that, mileage is billed at the current IRS standard mileage rate, round trip from 97481. Your quote includes the travel charge up front.</p>
+          </details>
+          <details>
+            <summary>How does brake pricing work?</summary>
+            <p>Disc brakes are $50 per wheel and drum brakes are $75 per wheel on most makes and models. A few vehicles are the exception, and we'll tell you before you book. Your price is confirmed in writing before any work starts.</p>
+          </details>
+          <details>
+            <summary>How does the free diagnosis work?</summary>
+            <p>If you go ahead with a repair that comes to $99 or more, the diagnosis is free. If the repair is under $99, our standard diagnostic rate applies. Either way, you'll know the price before we start.</p>
           </details>
           <details>
             <summary>What if it can't be done?</summary>

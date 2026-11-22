@@ -154,6 +154,24 @@ Both families are SIL OFL 1.1 and free for commercial print, web, app and vehicl
 
 ---
 
+## Customer promise and voice
+
+Business policies decided 2026-11-22. They appear on the website (hero chips, repairs, pricing, FAQ) and should match anything printed or said.
+
+| Policy | Wording |
+|---|---|
+| Brake service | **$50 per wheel for disc brakes, $75 per wheel for drum brakes**, for most makes and models. Price confirmed in writing before work starts. |
+| Free diagnosis | Free when the repair comes to **$99 or more**. Under $99, the standard diagnostic rate applies. |
+
+**Respect-first voice.** The brand speaks to people who have been talked down to, upsold or left guessing at a shop, which skews towards women drivers, but the offer and prices are identical for every customer. Rules:
+- Plain language, no jargon, every question answered.
+- Show the worn part or the scan result.
+- Price in writing first; no surprise add-ons.
+- No pressure or upsells; second opinions and a friend present are welcome.
+- Never condescend, and never address customers as a stereotype. Copy talks about the experience (being talked over, upsold), not about gender.
+
+---
+
 ## Next
 
 1. **Stage 4:** App Store and Google Play icons (micro mark on carbon fibre with an Electric Blue accent), social avatar and banners, splash screen.
