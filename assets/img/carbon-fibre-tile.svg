@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+<defs>
+ <linearGradient id="towH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d0e10"/><stop offset=".5" stop-color="#2b2f34"/><stop offset="1" stop-color="#0d0e10"/></linearGradient>
+ <linearGradient id="towV" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b0c0d"/><stop offset=".5" stop-color="#1f2226"/><stop offset="1" stop-color="#0b0c0d"/></linearGradient>
+ </defs><rect width="8" height="8" fill="url(#towH)"/><rect x="8" y="8" width="8" height="8" fill="url(#towH)"/><rect x="8" width="8" height="8" fill="url(#towV)"/><rect y="8" width="8" height="8" fill="url(#towV)"/></svg>

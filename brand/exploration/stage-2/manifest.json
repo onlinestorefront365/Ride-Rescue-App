@@ -1,0 +1,56 @@
+{
+  "sizes": [
+    1024,
+    512,
+    128,
+    64,
+    32
+  ],
+  "concepts": {
+    "a-tandem": {
+      "name": "Tandem",
+      "files": {
+        "mark-navy": "a-tandem-mark-navy.svg",
+        "mark-lime": "a-tandem-mark-lime.svg",
+        "mark-white": "a-tandem-mark-white.svg",
+        "mark-black": "a-tandem-mark-black.svg",
+        "lockup-light": "a-tandem-lockup-light.svg",
+        "lockup-dark": "a-tandem-lockup-dark.svg",
+        "app-tile": "a-tandem-app-tile.svg",
+        "construction": "a-tandem-construction.svg"
+      },
+      "width": 88.63,
+      "height": 64.0
+    },
+    "b-lane": {
+      "name": "Lane",
+      "files": {
+        "mark-navy": "b-lane-mark-navy.svg",
+        "mark-lime": "b-lane-mark-lime.svg",
+        "mark-white": "b-lane-mark-white.svg",
+        "mark-black": "b-lane-mark-black.svg",
+        "lockup-light": "b-lane-lockup-light.svg",
+        "lockup-dark": "b-lane-lockup-dark.svg",
+        "app-tile": "b-lane-app-tile.svg",
+        "construction": "b-lane-construction.svg"
+      },
+      "width": 89.02,
+      "height": 64.0
+    },
+    "c-route": {
+      "name": "Route",
+      "files": {
+        "mark-navy": "c-route-mark-navy.svg",
+        "mark-lime": "c-route-mark-lime.svg",
+        "mark-white": "c-route-mark-white.svg",
+        "mark-black": "c-route-mark-black.svg",
+        "lockup-light": "c-route-lockup-light.svg",
+        "lockup-dark": "c-route-lockup-dark.svg",
+        "app-tile": "c-route-app-tile.svg",
+        "construction": "c-route-construction.svg"
+      },
+      "width": 83.44,
+      "height": 66.94
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}
+body{margin:0;background:#F5F6F2;color:#14283D;font-family:Manrope,system-ui,sans-serif;width:1200px}
+@font-face{font-family:Manrope;src:url(../../fonts/Manrope-Variable.ttf);font-weight:200 800}
+.board{padding:48px}
+.kicker{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#87929D;margin:0 0 6px}
+h1{font-size:40px;font-weight:800;margin:0 0 8px;letter-spacing:-.01em}
+.idea{font-size:18px;line-height:1.5;max-width:880px;margin:0 0 28px;color:#252A30}
+.row{display:grid;gap:16px;margin-bottom:16px}
+.r2{grid-template-columns:1fr 1fr}
+.panel{border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:260px;position:relative}
+.light{background:#fff;border:1px solid #dfe3e6}
+.dark{background:#14283D;color:#F5F6F2}
+.label{position:absolute;left:16px;top:12px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#87929D}
+.dark .label{color:#8fa0b3}
+.big img{height:180px}
+.cons img{width:100%}
+.ladder{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.ladder figure{margin:0;text-align:center;font-size:12px;font-weight:700;color:#87929D}
+.ladder img{display:block;margin:0 auto 6px}
+.px{image-rendering:pixelated}
+.lock img{height:84px;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td{padding:8px 0;border-bottom:1px solid #e3e6e8}
+.dots span{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:5px;background:#d9dee2}
+.dots span.on{background:#14283D}
+.verdict{font-size:16px;line-height:1.55;margin:0}
+.rec{background:#B9E532;color:#14283D;font-weight:800;border-radius:999px;padding:4px 12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-left:10px;vertical-align:middle}
+.trio{grid-template-columns:repeat(3,1fr)}
+.trio .panel{flex-direction:column;gap:18px;min-height:240px}
+.trio .panel img.m{height:110px}
+.cap{font-size:15px;font-weight:800}
+.small{display:flex;gap:14px;align-items:flex-end}
+</style></head><body><div class="board">
+<p class="kicker">Ride Rescue · Stage 2</p>
+<h1>Three RR monogram directions</h1>
+<p class="idea">Same 64-unit cap height and 12-unit stroke, three different ideas. Shown in lime on navy and navy on white, with the app tile at 64 px, at 32 px, and at 32 px enlarged to show the pixels.</p>
+<div class="row trio"><div class="panel dark"><img class="m" src="a-tandem/a-tandem-mark-lime.svg">
+<div class="cap">A · Tandem</div>
+<div class="small"><img src="png/a-tandem-app-64.png" width="64"><img src="png/a-tandem-app-32.png" width="32"><img class="px" src="png/a-tandem-app-32.png" width="64"></div></div><div class="panel dark"><img class="m" src="b-lane/b-lane-mark-lime.svg">
+<div class="cap">B · Lane<span class="rec">Recommended</span></div>
+<div class="small"><img src="png/b-lane-app-64.png" width="64"><img src="png/b-lane-app-32.png" width="32"><img class="px" src="png/b-lane-app-32.png" width="64"></div></div><div class="panel dark"><img class="m" src="c-route/c-route-mark-lime.svg">
+<div class="cap">C · Route</div>
+<div class="small"><img src="png/c-route-app-64.png" width="64"><img src="png/c-route-app-32.png" width="32"><img class="px" src="png/c-route-app-32.png" width="64"></div></div></div>
+<div class="row trio"><div class="panel light"><img class="m" src="a-tandem/a-tandem-mark-navy.svg"></div><div class="panel light"><img class="m" src="b-lane/b-lane-mark-navy.svg"></div><div class="panel light"><img class="m" src="c-route/c-route-mark-navy.svg"></div></div>
+</div></body></html>
